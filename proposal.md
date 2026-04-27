@@ -1,13 +1,19 @@
 # PlexPrep: Smart Media Server Monitoring and Automated File Organisation System
 
 ## Student Name:
-Your Name Here
+Patrick O'Neill
 
 ## Student ID:
-Your Student ID Here
+20119129
 
-## Short Project Description:
-PlexPrep is a connected media server management system designed to monitor server health, storage usage, and media file organisation. The system scans media libraries, identifies naming issues, tracks server status, and provides automated file organisation for Plex-compatible standards through a dashboard and alert system.
+##  Project Description:
+This project proposes the development of PlexPrep, a smart connected media server monitoring and automated file organisation system designed to improve the management of personal media libraries and home entertainment servers.
+
+In real-world use, many users myselg included who operate Plex or similar media servers face challenges such as inconsistent file naming, disorganised media folders, duplicate files, and limited visibility over server health or storage capacity. These issues can reduce system efficiency, create playback problems, and increase the time required to manually maintain large media libraries.
+
+PlexPrep aims to address these problems by monitoring designated media storage directories, detecting new or incorrectly organised files, analysing naming conventions, tracking storage usage, and providing automated recommendations or actions to improve media organisation. The system will also provide server health insights, historical logs, and dashboard-based alerts to help users maintain reliable and efficient media server performance.
+
+Potential applications for this system include home media server management, small-scale digital archive organisation, automated backup monitoring, and efficient storage management for users handling large personal media collections. By combining file system monitoring, processing logic, networking communication, and dashboard visualisation, this project demonstrates how connected systems technologies can be applied to practical digital infrastructure solutions.
 
 ## Tools, Technologies and Equipment:
 - Python
