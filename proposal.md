@@ -28,3 +28,4 @@ Potential applications for this system include home media server management, sma
 - Regex
 
 ## Project Repository:
+https://github.com/PatrickOneill27/plexprep-media-monitor
