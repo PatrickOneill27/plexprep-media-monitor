@@ -1,10 +1,9 @@
 # PlexPrep: Smart Media Server Monitoring and Automated File Organisation System
 
-## Student Name:
-Patrick O'Neill
+## Student Name: Patrick O'Neill
 
-## Student ID:
-20119129
+
+## Student ID: 20119129
 
 ##  Project Description:
 This project proposes the development of PlexPrep, a smart connected media server monitoring and automated file organisation system designed to improve the management of personal media libraries and home entertainment servers.
