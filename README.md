@@ -88,8 +88,6 @@ Dashboard / Logs / User Alerts
 │   └── main.py
 ├── data/
 │   └── logs.csv
-├── docs/
-│   └── architecture.md
 └── test_media/
     ├── movies/
     └── tv/
