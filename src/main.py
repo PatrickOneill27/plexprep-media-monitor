@@ -11,6 +11,13 @@ print("Scanning media library...\n")
 for file in media_folder.rglob("*"):
     # Check if the current path is a file
     if file.is_file():
+         # Determine media type based on folder path
+        if "movies" in file.parts:
+            media_type = "Movie"
+        elif "tv" in file.parts:
+            media_type = "TV Show"
+        else:
+            media_type = "Unknown"
         # Output the detected file name
         print(f"Detected file: {file.name}")
 
