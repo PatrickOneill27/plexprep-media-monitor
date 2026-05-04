@@ -3,6 +3,7 @@
 
 from flask import Flask, jsonify
 from pathlib import Path
+from main import scan_media_library
 
 app = Flask(__name__)
 
@@ -17,6 +18,7 @@ def home():
     <ul>
         <li><a href="/status">System Status</a></li>
         <li><a href="/logs">View Logs</a></li>
+        <li><a href="/scan">Run Media Scan</a></li>
     </ul>
     """
 
@@ -38,6 +40,12 @@ def logs():
 
     with open(log_file, "r") as f:
         return f"<pre>{f.read()}</pre>"
+
+
+@app.route("/scan")
+def scan():
+    results = scan_media_library()
+    return jsonify(results)
 
 
 if __name__ == "__main__":
