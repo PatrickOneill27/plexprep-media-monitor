@@ -49,27 +49,51 @@ def log_event(file_path, media_type, status):
         ])
 
 
-print("Scanning media library...\n")
+def scan_media_library():
+    """
+    Scans the media library, checks file naming,
+    logs results, and returns scan data.
+    """
 
-# Scan all files
-for file in media_folder.rglob("*"):
-    if file.is_file():
+    results = []
 
-        # Detect type
-        if "movies" in file.parts:
-            media_type = "Movie"
-        elif "tv" in file.parts:
-            media_type = "TV Show"
-        else:
-            media_type = "Unknown"
+    print("Scanning media library...\n")
 
-        # Check naming
-        status = check_naming(file.name, media_type)
+    for file in media_folder.rglob("*"):
+        if file.is_file():
 
-        # Output result
-        print(f"[{media_type}] {file} -> {status}")
+            # Detect type
+            path_parts = [part.lower() for part in file.parts]
 
-        # Log result
-        log_event(str(file), media_type, status)
+            if "movies" in path_parts:
+                media_type = "Movie"
+            elif "tv" in path_parts:
+                media_type = "TV Show"
+            else:
+                media_type = "Unknown"
 
-print("\nScan complete.")
+            # Check naming
+            status = check_naming(file.name, media_type)
+
+            # Store result for Flask/API use
+            result = {
+                "file": str(file),
+                "type": media_type,
+                "status": status
+            }
+
+            results.append(result)
+
+            # Output result to terminal
+            print(f"[{media_type}] {file} -> {status}")
+
+            # Log result
+            log_event(str(file), media_type, status)
+
+    print("\nScan complete.")
+
+    return results
+
+
+if __name__ == "__main__":
+    scan_media_library()
