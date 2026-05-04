@@ -121,8 +121,13 @@ Dashboard / Logs / User Alerts
 
 # This project is being developed as part of Assignment 2 for Computer Systems and Networks, focusing on connected devices, networking, IoT architecture, and practical system integration.
 
-# Author
+## How to Run the Project
 
+### Install dependencies
+```bash
+pip install -r requirements.txt
+```
+# Author
 Student Name: Patrick O'Neill
 Student ID: 20119129
 
