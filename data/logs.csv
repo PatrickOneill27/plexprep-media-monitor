@@ -4,3 +4,10 @@ timestamp,file_name,media_type,status,action
 # media_type → Type of Media ie Tv Show or Movie ect.
 # status → Example: healthy / needs_rename / duplicate
 # action → Example: scanned / renamed / flagged
+2026-05-04 22:15:31.540553,test_media\Tv\Game Of Thrones\Season 1\Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-04 22:15:31.541208,test_media\Tv\Game Of Thrones\Season 2\Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-04 22:15:31.542112,test_media\Tv\Breaking Bad\Season 1\badfile.txt,TV Show,needs_rename,scanned
+2026-05-04 22:15:31.542612,test_media\Tv\Breaking Bad\Season 1\Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-04 22:15:31.543343,test_media\Tv\Breaking Bad\Season 2\Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-04 22:15:31.544272,test_media\Movies\Blade Runner 2049 (2017)\Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-04 22:15:31.544919,test_media\Movies\The Matrix (1999)\The.Matrix.1999.1080p.mkv,Movie,valid,scanned
