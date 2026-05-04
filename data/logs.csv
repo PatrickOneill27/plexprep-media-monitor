@@ -1,5 +1,6 @@
-timestamp,file_name,status,action
+timestamp,file_name,media_type,status,action
 # timestamp → When event occurred
 # file_name → Media file detected
+# media_type → Type of Media ie Tv Show or Movie ect.
 # status → Example: healthy / needs_rename / duplicate
 # action → Example: scanned / renamed / flagged
