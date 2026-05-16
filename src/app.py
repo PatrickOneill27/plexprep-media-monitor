@@ -135,16 +135,59 @@ def home():
     <body>
         <h1>PlexPrep Media Monitor</h1>
         <p>Smart connected media server monitoring and Plex file organisation dashboard.</p>
+<div class="cards">
 
-        <div class="cards">
-            <div class="card"><h2>{total_files}</h2><p>Total Files</p></div>
-            <div class="card"><h2>{movie_count}</h2><p>Movies</p></div>
-            <div class="card"><h2>{tv_count}</h2><p>TV Episodes</p></div>
-            <div class="card"><h2>{valid_count}</h2><p>Valid Files</p></div>
-            <div class="card"><h2>{needs_rename_count}</h2><p>Needs Rename</p></div>
-            <div class="card"><h2>{storage["usage_percent"]}%</h2><p>Storage Used</p></div>
-        </div>
+    <div class="card">
+        <h2>{total_files}</h2>
+        <p>Total Files</p>
+    </div>
 
+    <div class="card">
+        <h2>{movie_count}</h2>
+        <p>Movies</p>
+    </div>
+
+    <div class="card">
+        <h2>{tv_count}</h2>
+        <p>TV Episodes</p>
+    </div>
+
+    <div class="card">
+        <h2>{valid_count}</h2>
+        <p>Valid Files</p>
+    </div>
+
+    <div class="card">
+        <h2>{needs_rename_count}</h2>
+        <p>Needs Rename</p>
+    </div>
+
+</div>
+
+<div class="cards">
+
+    <div class="card">
+        <h2>{storage["usage_percent"]}%</h2>
+        <p>Disk Usage</p>
+    </div>
+
+    <div class="card">
+        <h2>{storage["total_gb"]} GB</h2>
+        <p>Total Capacity</p>
+    </div>
+
+    <div class="card">
+        <h2>{storage["used_gb"]} GB</h2>
+        <p>Used Capacity</p>
+    </div>
+
+    <div class="card">
+        <h2>{storage["free_gb"]} GB</h2>
+        <p>Free Capacity</p>
+    </div>
+
+</div>
+   
         <h2>Scan Results</h2>
 
         <table>
