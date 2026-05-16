@@ -13,11 +13,11 @@ def home():
     results = scan_media_library()
     storage = get_storage_stats()
     if storage["usage_percent"] < 70:
-    disk_class = "healthy"
+        disk_class = "healthy"
     elif storage["usage_percent"] < 90:
-    disk_class = "warning"
+        disk_class = "warning"
     else:
-    disk_class = "critical"
+        disk_class = "critical"
 
     total_files = len(results)
     movie_count = sum(1 for item in results if item["type"] == "Movie")
@@ -126,15 +126,17 @@ def home():
                 font-weight: bold;
             }}
 
-            .healthy {{
-                color: #22c55e;
-                font-weight: bold;
+           .card h2.healthy {{
+               color: #22c55e;
             }}
 
-            .critical {{
-                color: #ef4444;
-                font-weight: bold;
+           .card h2.warning {{
+               color: #e5a00d;
             }}
+
+           .card h2.critical {{
+               color: #ef4444;
+   }}
 
             a {{
                 color: #e5a00d;
