@@ -185,6 +185,7 @@ def home():
         <h2>{storage["free_gb"]} GB</h2>
         <p>Free Capacity</p>
     </div>
+    
 
 </div>
    
