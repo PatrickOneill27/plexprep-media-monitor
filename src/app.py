@@ -1,6 +1,6 @@
 # PlexPrep Flask Application
 # Provides a basic dashboard and API endpoints for the media monitoring system
-
+import shutil
 from flask import Flask, jsonify
 from pathlib import Path
 from main import scan_media_library
