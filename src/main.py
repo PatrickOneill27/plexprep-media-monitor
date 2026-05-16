@@ -6,6 +6,7 @@ from pathlib import Path
 from datetime import datetime
 import re
 import csv
+import shutil
 
 # Root folder
 media_folder = Path("test_media")
@@ -48,6 +49,19 @@ def log_event(file_path, media_type, status):
             "scanned"
         ])
 
+def get_storage_stats():
+    """
+    Returns storage usage statistics.
+    """
+
+    total, used, free = shutil.disk_usage(".")
+
+    return {
+        "total_gb": round(total / (1024**3), 2),
+        "used_gb": round(used / (1024**3), 2),
+        "free_gb": round(free / (1024**3), 2),
+        "usage_percent": round((used / total) * 100, 1)
+    }
 
 def scan_media_library():
     """

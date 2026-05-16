@@ -53,3 +53,24 @@ timestamp,file_name,media_type,status,action
 2026-05-16 20:31:38.614401,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
 2026-05-16 20:31:38.614617,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
 2026-05-16 20:31:38.614769,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-16 20:47:38.065528,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-16 20:47:38.065761,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-16 20:47:38.065947,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-16 20:47:38.066064,test_media/Tv/Breaking Bad/Season 1/badfile.txt,TV Show,needs_rename,scanned
+2026-05-16 20:47:38.066151,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-16 20:47:38.066359,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-16 20:47:38.066467,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-16 20:47:58.164412,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-16 20:47:58.164600,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-16 20:47:58.164774,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-16 20:47:58.164881,test_media/Tv/Breaking Bad/Season 1/badfile.txt,TV Show,needs_rename,scanned
+2026-05-16 20:47:58.164965,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-16 20:47:58.165170,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-16 20:47:58.165273,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-16 20:48:09.290856,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-16 20:48:09.291064,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-16 20:48:09.291265,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-16 20:48:09.291387,test_media/Tv/Breaking Bad/Season 1/badfile.txt,TV Show,needs_rename,scanned
+2026-05-16 20:48:09.291473,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-16 20:48:09.291720,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-16 20:48:09.291842,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned

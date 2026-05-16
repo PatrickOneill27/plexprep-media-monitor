@@ -1,9 +1,8 @@
 # PlexPrep Flask Application
 # Provides a basic dashboard and API endpoints for the media monitoring system
-import shutil
 from flask import Flask, jsonify
 from pathlib import Path
-from main import scan_media_library
+from main import scan_media_library ,get_storage_stats
 
 app = Flask(__name__)
 
@@ -12,6 +11,7 @@ log_file = Path("data/logs.csv")
 @app.route("/")
 def home():
     results = scan_media_library()
+    storage = get_storage_stats()
 
     total_files = len(results)
     movie_count = sum(1 for item in results if item["type"] == "Movie")
@@ -142,6 +142,7 @@ def home():
             <div class="card"><h2>{tv_count}</h2><p>TV Episodes</p></div>
             <div class="card"><h2>{valid_count}</h2><p>Valid Files</p></div>
             <div class="card"><h2>{needs_rename_count}</h2><p>Needs Rename</p></div>
+            <div class="card"><h2>{storage["usage_percent"]}%</h2><p>Storage Used</p></div>
         </div>
 
         <h2>Scan Results</h2>
