@@ -12,6 +12,12 @@ log_file = Path("data/logs.csv")
 def home():
     results = scan_media_library()
     storage = get_storage_stats()
+    if storage["usage_percent"] < 70:
+    disk_class = "healthy"
+    elif storage["usage_percent"] < 90:
+    disk_class = "warning"
+    else:
+    disk_class = "critical"
 
     total_files = len(results)
     movie_count = sum(1 for item in results if item["type"] == "Movie")
@@ -120,6 +126,16 @@ def home():
                 font-weight: bold;
             }}
 
+            .healthy {{
+                color: #22c55e;
+                font-weight: bold;
+            }}
+
+            .critical {{
+                color: #ef4444;
+                font-weight: bold;
+            }}
+
             a {{
                 color: #e5a00d;
                 text-decoration: none;
@@ -166,10 +182,10 @@ def home():
 
 <div class="cards">
 
-    <div class="card">
-        <h2>{storage["usage_percent"]}%</h2>
-        <p>Disk Usage</p>
-    </div>
+   <div class="card">
+    <h2 class="{disk_class}">{storage["usage_percent"]}%</h2>
+    <p>Disk Usage</p>
+</div>
 
     <div class="card">
         <h2>{storage["total_gb"]} GB</h2>
