@@ -35,6 +35,7 @@ def home():
             <td>{item["file"]}</td>
             <td>{item["type"]}</td>
             <td class="{status_class}">{item["status"]}</td>
+            <td>{item["suggested_name"]}</td>
         </tr>
         """
 
@@ -214,6 +215,7 @@ def home():
                 <th>File</th>
                 <th>Type</th>
                 <th>Status</th>
+                <th>Rename Suggestions</th>
             </tr>
             {table_rows}
         </table>
