@@ -1,6 +1,7 @@
 # PlexPrep Media Monitor
 # This script scans the media library, detects files,
-# identifies media type, checks naming, and logs results.
+# identifies media type, checks naming, logs results,
+# checks storage usage, and suggests Plex-friendly rename options.
 
 from pathlib import Path
 from datetime import datetime
@@ -8,7 +9,7 @@ import re
 import csv
 import shutil
 
-# Root folder
+# Root folder containing the simulated media library
 media_folder = Path("test_media")
 
 # Log file path
@@ -17,7 +18,7 @@ log_file = Path("data/logs.csv")
 
 def check_naming(file_name, media_type):
     """
-    Checks if file follows basic Plex naming rules
+    Checks if file follows basic Plex naming rules.
     """
 
     if media_type == "TV Show":
@@ -27,7 +28,7 @@ def check_naming(file_name, media_type):
         return "needs_rename"
 
     elif media_type == "Movie":
-        # Looks for year like (1999) or 1999
+        # Looks for year like 1999 or (1999)
         if re.search(r"\d{4}", file_name):
             return "valid"
         return "needs_rename"
@@ -37,8 +38,9 @@ def check_naming(file_name, media_type):
 
 def log_event(file_path, media_type, status):
     """
-    Writes scan results to CSV file
+    Writes scan results to CSV file.
     """
+
     with open(log_file, "a", newline="") as f:
         writer = csv.writer(f)
         writer.writerow([
@@ -48,6 +50,7 @@ def log_event(file_path, media_type, status):
             status,
             "scanned"
         ])
+
 
 def get_storage_stats():
     """
@@ -63,6 +66,86 @@ def get_storage_stats():
         "usage_percent": round((used / total) * 100, 1)
     }
 
+
+def generate_rename_suggestion(file_path, media_type, suggested_tracker):
+    """
+    Generates a Plex-friendly rename suggestion.
+
+    For TV shows, it uses the show folder, season folder,
+    and next available episode number.
+
+    For movies, it uses the movie folder name.
+    """
+
+    # Movie rename suggestions
+    if media_type == "Movie":
+        try:
+            movie_folder = file_path.parts[-2]
+            extension = file_path.suffix
+
+            suggested_name = movie_folder.replace(" ", ".") + extension
+
+            return suggested_name
+
+        except IndexError:
+            return ""
+
+    # TV rename suggestions
+    if media_type != "TV Show":
+        return ""
+
+    parts = file_path.parts
+
+    try:
+        show_name = parts[-3]
+        season_folder = parts[-2]
+        extension = file_path.suffix
+
+        season_match = re.search(r"\d+", season_folder)
+
+        if not season_match:
+            return ""
+
+        season = int(season_match.group())
+        season_path = file_path.parent
+        tracker_key = str(season_path)
+
+        highest_episode = 0
+
+        for existing_file in season_path.iterdir():
+            if existing_file.is_file():
+                episode_match = re.search(
+                    r"S\d{2}E(\d{2})",
+                    existing_file.name,
+                    re.IGNORECASE
+                )
+
+                if episode_match:
+                    episode_num = int(episode_match.group(1))
+
+                    if episode_num > highest_episode:
+                        highest_episode = episode_num
+
+        if tracker_key not in suggested_tracker:
+            suggested_tracker[tracker_key] = highest_episode
+
+        suggested_tracker[tracker_key] += 1
+        next_episode = suggested_tracker[tracker_key]
+
+        suggested_name = (
+            f"{show_name.replace(' ', '.')}"
+            f".S{season:02d}E{next_episode:02d}"
+            f"{extension}"
+        )
+
+        return suggested_name
+
+    except IndexError:
+        return ""
+
+    return ""
+
+
 def scan_media_library():
     """
     Scans the media library, checks file naming,
@@ -70,13 +153,14 @@ def scan_media_library():
     """
 
     results = []
+    suggested_tracker = {}
 
     print("Scanning media library...\n")
 
     for file in media_folder.rglob("*"):
         if file.is_file():
 
-            # Detect type
+            # Detect media type based on folder path
             path_parts = [part.lower() for part in file.parts]
 
             if "movies" in path_parts:
@@ -86,14 +170,25 @@ def scan_media_library():
             else:
                 media_type = "Unknown"
 
-            # Check naming
+            # Check naming status
             status = check_naming(file.name, media_type)
+
+            # Generate rename suggestion only if needed
+            suggested_name = ""
+
+            if status == "needs_rename":
+                suggested_name = generate_rename_suggestion(
+                    file,
+                    media_type,
+                    suggested_tracker
+                )
 
             # Store result for Flask/API use
             result = {
                 "file": str(file),
                 "type": media_type,
-                "status": status
+                "status": status,
+                "suggested_name": suggested_name
             }
 
             results.append(result)
@@ -101,7 +196,7 @@ def scan_media_library():
             # Output result to terminal
             print(f"[{media_type}] {file} -> {status}")
 
-            # Log result
+            # Log scan result
             log_event(str(file), media_type, status)
 
     print("\nScan complete.")
