@@ -300,11 +300,11 @@ def home():
         </table>
 
         <p>
-            <a href="/scan">View JSON Scan</a> |
+            <a href="/scan">Media Scan Results</a> |
             <a href="/rename-preview">Rename Preview</a> |
             <a href="/rename">Apply Safe Rename</a> |
-            <a href="/logs">View Logs</a> |
-            <a href="/status">System Status</a>
+            <a href="/logs">Activity Logs</a> |
+            <a href="/status">Server Status</a>
         </p>
     </body>
     </html>
