@@ -271,6 +271,66 @@ def rename_preview():
 @app.route("/rename")
 def rename_files():
     renamed_files = apply_safe_renames()
+    if not renamed_files:
+         return """
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>PlexPrep Rename</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    background-color: #0f0f0f;
+                    color: #ffffff;
+                    margin: 0;
+                    padding: 30px;
+                }
+
+                .message-box {
+                    background-color: #1f1f1f;
+                    border-left: 5px solid #e5a00d;
+                    padding: 30px;
+                    border-radius: 10px;
+                    max-width: 600px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+                }
+
+                h1 {
+                    color: #e5a00d;
+                    margin-top: 0;
+                }
+
+                p {
+                    color: #d1d5db;
+                    font-size: 16px;
+                }
+
+                a {
+                    display: inline-block;
+                    margin-top: 15px;
+                    color: #0f0f0f;
+                    background-color: #e5a00d;
+                    padding: 10px 16px;
+                    border-radius: 6px;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+
+                a:hover {
+                    background-color: #ffffff;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="message-box">
+                <h1>No Files Needed Renaming</h1>
+                <p>Your media library is already organised correctly.</p>
+                <a href="/">Return to Dashboard</a>
+            </div>
+        </body>
+        </html>
+        """
+
     return jsonify(renamed_files)
 
 if __name__ == "__main__":
