@@ -7,6 +7,82 @@ from main import scan_media_library ,get_storage_stats, apply_safe_renames
 app = Flask(__name__)
 
 log_file = Path("data/logs.csv")
+def render_page(title, content):
+    return f"""
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>{title}</title>
+        <style>
+            body {{
+                font-family: Arial, sans-serif;
+                background-color: #0f0f0f;
+                color: #ffffff;
+                margin: 0;
+                padding: 30px;
+            }}
+
+            .box {{
+                background-color: #1f1f1f;
+                border-left: 5px solid #e5a00d;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+            }}
+
+            h1 {{
+                color: #e5a00d;
+                margin-top: 0;
+            }}
+
+            pre, table {{
+                background-color: #111111;
+                padding: 15px;
+                border-radius: 8px;
+                overflow-x: auto;
+                color: #f3f4f6;
+            }}
+
+            table {{
+                width: 100%;
+                border-collapse: collapse;
+            }}
+
+            th, td {{
+                padding: 12px;
+                border-bottom: 1px solid #333333;
+                text-align: left;
+            }}
+
+            th {{
+                color: #e5a00d;
+            }}
+
+            a {{
+                display: inline-block;
+                margin-top: 20px;
+                color: #0f0f0f;
+                background-color: #e5a00d;
+                padding: 10px 16px;
+                border-radius: 6px;
+                text-decoration: none;
+                font-weight: bold;
+            }}
+
+            a:hover {{
+                background-color: #ffffff;
+            }}
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <h1>{title}</h1>
+            {content}
+            <a href="/">Return to Dashboard</a>
+        </div>
+    </body>
+    </html>
+    """
 
 @app.route("/")
 def home():
@@ -233,31 +309,90 @@ def home():
 
 @app.route("/status")
 def status():
-    return jsonify({
-        "system": "PlexPrep",
-        "status": "running",
-        "layer": "Application + Networking",
-        "protocol": "HTTP (Flask)"
-    })
+    content = """
+    <table>
+        <tr><th>Item</th><th>Status</th></tr>
+        <tr><td>System</td><td>PlexPrep</td></tr>
+        <tr><td>Application Status</td><td>Running</td></tr>
+        <tr><td>Layer</td><td>Application + Networking</td></tr>
+        <tr><td>Protocol</td><td>HTTP Flask</td></tr>
+    </table>
+    """
 
+    return render_page("System Status", content)
 
 @app.route("/logs")
 def logs():
     if not log_file.exists():
-        return "No logs found."
+        return render_page("Logs", "<p>No logs found.</p>")
+
+    rows = ""
 
     with open(log_file, "r") as f:
-        return f"<pre>{f.read()}</pre>"
+        lines = f.readlines()
 
+    # Skip the header row
+    for line in lines[1:]:
+        columns = line.strip().split(",")
+
+        if len(columns) >= 5:
+            rows += f"""
+            <tr>
+                <td>{columns[0]}</td>
+                <td>{columns[1]}</td>
+                <td>{columns[2]}</td>
+                <td>{columns[3]}</td>
+                <td>{columns[4]}</td>
+            </tr>
+            """
+
+    content = f"""
+    <table>
+        <tr>
+            <th>Timestamp</th>
+            <th>File Path</th>
+            <th>Media Type</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        {rows}
+    </table>
+    """
+
+    return render_page("System Logs", content)
 
 @app.route("/scan")
 def scan():
     results = scan_media_library()
-    return jsonify(results)
+
+    rows = ""
+
+    for item in results:
+        rows += f"""
+        <tr>
+            <td>{item["file"]}</td>
+            <td>{item["type"]}</td>
+            <td>{item["status"]}</td>
+            <td>{item["suggested_name"]}</td>
+        </tr>
+        """
+
+    content = f"""
+    <table>
+        <tr>
+            <th>File</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Rename Suggestion</th>
+        </tr>
+        {rows}
+    </table>
+    """
+
+    return render_page("JSON Scan Results", content)
 
 @app.route("/rename-preview")
 def rename_preview():
-
     results = scan_media_library()
 
     rename_items = [
@@ -266,72 +401,68 @@ def rename_preview():
         and item["suggested_name"]
     ]
 
-    return jsonify(rename_items)
+    if not rename_items:
+        return render_page(
+            "Rename Preview",
+            "<p>No files currently need renaming.</p>"
+        )
+
+    rows = ""
+
+    for item in rename_items:
+        rows += f"""
+        <tr>
+            <td>{item["file"]}</td>
+            <td>{item["suggested_name"]}</td>
+        </tr>
+        """
+
+    content = f"""
+    <table>
+        <tr>
+            <th>Current File</th>
+            <th>Suggested Rename</th>
+        </tr>
+        {rows}
+    </table>
+    """
+
+    return render_page("Rename Preview", content)
 
 @app.route("/rename")
 def rename_files():
     renamed_files = apply_safe_renames()
+
     if not renamed_files:
-         return """
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>PlexPrep Rename</title>
-            <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    background-color: #0f0f0f;
-                    color: #ffffff;
-                    margin: 0;
-                    padding: 30px;
-                }
+        return render_page(
+            "No Files Needed Renaming",
+            "<p>Your media library is already organised correctly.</p>"
+        )
 
-                .message-box {
-                    background-color: #1f1f1f;
-                    border-left: 5px solid #e5a00d;
-                    padding: 30px;
-                    border-radius: 10px;
-                    max-width: 600px;
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
-                }
+    rows = ""
 
-                h1 {
-                    color: #e5a00d;
-                    margin-top: 0;
-                }
-
-                p {
-                    color: #d1d5db;
-                    font-size: 16px;
-                }
-
-                a {
-                    display: inline-block;
-                    margin-top: 15px;
-                    color: #0f0f0f;
-                    background-color: #e5a00d;
-                    padding: 10px 16px;
-                    border-radius: 6px;
-                    text-decoration: none;
-                    font-weight: bold;
-                }
-
-                a:hover {
-                    background-color: #ffffff;
-                }
-            </style>
-        </head>
-        <body>
-            <div class="message-box">
-                <h1>No Files Needed Renaming</h1>
-                <p>Your media library is already organised correctly.</p>
-                <a href="/">Return to Dashboard</a>
-            </div>
-        </body>
-        </html>
+    for item in renamed_files:
+        rows += f"""
+        <tr>
+            <td>{item["old_file"]}</td>
+            <td>{item["new_file"]}</td>
+            <td>{item["status"]}</td>
+        </tr>
         """
 
-    return jsonify(renamed_files)
+    content = f"""
+    <p>The following files were safely renamed:</p>
+    <table>
+        <tr>
+            <th>Old File</th>
+            <th>New File</th>
+            <th>Status</th>
+        </tr>
+        {rows}
+    </table>
+    """
+
+    return render_page("Files Renamed Successfully", content)
 
 if __name__ == "__main__":
     app.run(debug=True)
