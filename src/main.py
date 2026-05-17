@@ -145,6 +145,30 @@ def generate_rename_suggestion(file_path, media_type, suggested_tracker):
 
     return ""
 
+def apply_safe_renames():
+    """
+    Safely renames files that need renaming using generated suggestions.
+    Only files with valid rename suggestions are changed.
+    """
+
+    results = scan_media_library()
+    renamed_files = []
+
+    for item in results:
+        if item["status"] == "needs_rename" and item["suggested_name"]:
+            old_path = Path(item["file"])
+            new_path = old_path.parent / item["suggested_name"]
+
+            if old_path.exists() and not new_path.exists():
+                old_path.rename(new_path)
+
+                renamed_files.append({
+                    "old_file": str(old_path),
+                    "new_file": str(new_path),
+                    "status": "renamed"
+                })
+
+    return renamed_files
 
 def scan_media_library():
     """

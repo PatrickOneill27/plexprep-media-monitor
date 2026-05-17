@@ -2,7 +2,7 @@
 # Provides a basic dashboard and API endpoints for the media monitoring system
 from flask import Flask, jsonify
 from pathlib import Path
-from main import scan_media_library ,get_storage_stats
+from main import scan_media_library ,get_storage_stats, apply_safe_renames
 
 app = Flask(__name__)
 
@@ -223,6 +223,7 @@ def home():
         <p>
             <a href="/scan">View JSON Scan</a> |
             <a href="/rename-preview">Rename Preview</a> |
+            <a href="/rename">Apply Safe Rename</a> |
             <a href="/logs">View Logs</a> |
             <a href="/status">System Status</a>
         </p>
@@ -266,6 +267,11 @@ def rename_preview():
     ]
 
     return jsonify(rename_items)
+
+@app.route("/rename")
+def rename_files():
+    renamed_files = apply_safe_renames()
+    return jsonify(renamed_files)
 
 if __name__ == "__main__":
     app.run(debug=True)
