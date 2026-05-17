@@ -7,7 +7,7 @@ from main import scan_media_library ,get_storage_stats, apply_safe_renames
 app = Flask(__name__)
 
 log_file = Path("data/logs.csv")
-def render_page(title, content):
+def render_page(title, content, top_button=False):
     return f"""
     <!DOCTYPE html>
     <html>
@@ -60,7 +60,9 @@ def render_page(title, content):
 
             a {{
                 display: inline-block;
+                margin-right: 10px;
                 margin-top: 20px;
+                margin-bottom: 20px;
                 color: #0f0f0f;
                 background-color: #e5a00d;
                 padding: 10px 16px;
@@ -77,6 +79,7 @@ def render_page(title, content):
     <body>
         <div class="box">
             <h1>{title}</h1>
+          {"<a href='/'>Return to Dashboard</a>" if top_button else ""}
             {content}
             <a href="/">Return to Dashboard</a>
         </div>
@@ -359,7 +362,7 @@ def logs():
     </table>
     """
 
-    return render_page("System Logs", content)
+    return render_page("System Logs", content, top_button=True)
 
 @app.route("/scan")
 def scan():
@@ -389,7 +392,7 @@ def scan():
     </table>
     """
 
-    return render_page("JSON Scan Results", content)
+    return render_page("JSON Scan Results", content, top_button=True)
 
 @app.route("/rename-preview")
 def rename_preview():
@@ -427,7 +430,7 @@ def rename_preview():
     </table>
     """
 
-    return render_page("Rename Preview", content)
+    return render_page("Rename Preview", content, top_button=True)
 
 @app.route("/rename")
 def rename_files():
