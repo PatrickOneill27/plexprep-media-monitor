@@ -222,6 +222,7 @@ def home():
 
         <p>
             <a href="/scan">View JSON Scan</a> |
+            <a href="/rename-preview">Rename Preview</a> |
             <a href="/logs">View Logs</a> |
             <a href="/status">System Status</a>
         </p>
@@ -253,6 +254,18 @@ def scan():
     results = scan_media_library()
     return jsonify(results)
 
+@app.route("/rename-preview")
+def rename_preview():
+
+    results = scan_media_library()
+
+    rename_items = [
+        item for item in results
+        if item["status"] == "needs_rename"
+        and item["suggested_name"]
+    ]
+
+    return jsonify(rename_items)
 
 if __name__ == "__main__":
     app.run(debug=True)
