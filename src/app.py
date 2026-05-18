@@ -107,6 +107,7 @@ def home():
     needs_rename_count = sum(1 for item in results if item["status"] == "needs_rename")
 
     table_rows = ""
+
     for item in results:
 
         status_class = "valid" if item["status"] == "valid" else "warning"
@@ -115,19 +116,29 @@ def home():
 
         if isinstance(metadata, dict):
 
-            metadata_display = f"""
-            <div class="metadata-card">
-                <strong>{metadata.get("title", "Unknown Title")}</strong><br>
-                {metadata.get("airdate", "Unknown airdate")}<br>
-                {metadata.get("runtime", "Unknown runtime")} mins
-            </div>
-            """
+            # Movie metadata message
+            if "message" in metadata:
+                metadata_display = f"""
+                <div class="metadata-card">
+                    <strong>{metadata.get("message")}</strong>
+                </div>
+                """
+
+            # TV metadata
+            else:
+                metadata_display = f"""
+                <div class="metadata-card">
+                    <strong>{metadata.get("title", "Unknown Title")}</strong><br>
+                    {metadata.get("airdate", "Unknown airdate")}<br>
+                    {metadata.get("runtime", "Unknown runtime")} mins
+                </div>
+                """
 
         elif metadata:
             metadata_display = metadata
 
         else:
-         metadata_display = "N/A"
+            metadata_display = "N/A"
 
         table_rows += f"""
         <tr>
@@ -138,7 +149,6 @@ def home():
             <td>{metadata_display}</td>
         </tr>
         """
-
     return f"""
 
     <!DOCTYPE html>

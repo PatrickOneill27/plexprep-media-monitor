@@ -255,7 +255,11 @@ def scan_media_library():
                      season,
                     episode
              )
-           
+            # Movie metadata explanation
+            elif media_type == "Movie" and status == "valid":
+                metadata = {
+                      "message": "No external movie metadata configured"
+            }
             # Generate rename suggestion only if needed
             suggested_name = ""
 
