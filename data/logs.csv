@@ -585,3 +585,315 @@ timestamp,file_name,media_type,status,action
 2026-05-17 22:26:06.499312,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
 2026-05-17 22:26:06.499413,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
 2026-05-17 22:26:06.499530,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-17 22:57:13.571747,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-17 22:57:13.687087,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-17 22:57:13.784066,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-17 22:57:13.884875,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-17 22:57:14.000470,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-17 22:57:14.095039,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-17 22:57:14.210802,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-17 22:57:14.285200,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-17 22:58:21.654408,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-17 22:58:21.757563,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-17 22:58:21.859690,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-17 22:58:21.944568,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-17 22:58:22.030403,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-17 22:58:22.115591,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-17 22:58:22.206687,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-17 22:58:22.287524,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:02:54.452476,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-17 23:02:54.542197,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-17 23:02:54.620897,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-17 23:02:54.706886,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-17 23:02:54.792568,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-17 23:02:54.880058,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:02:54.975797,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-17 23:02:55.060259,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:05:39.807464,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-17 23:05:39.917564,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-17 23:05:40.000793,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-17 23:05:40.106903,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-17 23:05:40.200714,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-17 23:05:40.284301,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:05:40.372202,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-17 23:05:40.457011,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:07:24.272186,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-17 23:07:24.381159,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-17 23:07:24.486559,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-17 23:07:24.573419,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-17 23:07:24.675740,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-17 23:07:24.760213,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:07:24.858687,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-17 23:07:24.967922,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:23:54.509486,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-17 23:23:54.616326,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-17 23:23:54.713738,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-17 23:23:54.812671,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-17 23:23:54.899684,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-17 23:23:54.899996,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:23:54.900128,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-17 23:23:54.900252,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:24:37.636790,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-17 23:24:37.724099,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-17 23:24:37.807279,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-17 23:24:37.905684,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-17 23:24:38.011837,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-17 23:24:38.012132,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:24:38.012262,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-17 23:24:38.012375,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:28:03.227342,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:03.349522,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:03.458190,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:03.565423,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-17 23:28:03.690251,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:03.690643,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:28:03.690790,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-17 23:28:03.690908,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:28:04.123149,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:04.270783,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:04.352661,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:04.457717,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-17 23:28:04.546068,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:04.546574,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:28:04.546903,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-17 23:28:04.547155,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:28:04.970233,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:05.069592,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:05.153627,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:05.254612,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-17 23:28:05.364645,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:05.364953,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:28:05.365069,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-17 23:28:05.365170,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:28:05.693017,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:05.804603,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:05.893496,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:06.002360,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-17 23:28:06.109011,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:06.109319,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:28:06.109457,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-17 23:28:06.109585,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:28:06.364181,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:06.514842,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:06.709208,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:06.812673,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-17 23:28:06.897484,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:06.897774,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:28:06.897906,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-17 23:28:06.898017,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:28:19.817585,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:19.922693,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:19.998974,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:20.090262,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-17 23:28:20.202427,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-17 23:28:20.202759,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:28:20.202884,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-17 23:28:20.202995,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:33:38.319075,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-17 23:33:38.422659,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-17 23:33:38.521019,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-17 23:33:38.612011,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-17 23:33:38.712681,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-17 23:33:38.713037,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:33:38.713181,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-17 23:33:38.713304,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:33:53.305476,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-17 23:33:53.409867,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-17 23:33:53.492614,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-17 23:33:53.588739,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-17 23:33:53.684240,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-17 23:33:53.684556,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:33:53.684686,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-17 23:33:53.684801,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:39:31.433352,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-17 23:39:31.536055,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-17 23:39:31.634973,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-17 23:39:31.726204,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-17 23:39:31.819960,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-17 23:39:31.820307,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:39:31.820418,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-17 23:39:31.820542,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:43:27.454547,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-17 23:43:27.541709,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-17 23:43:27.630169,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-17 23:43:27.720036,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-17 23:43:27.808414,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-17 23:43:27.808920,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-17 23:43:27.809171,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-17 23:43:27.809398,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:14:17.631974,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:14:17.718265,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:14:17.812926,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:14:17.910259,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:14:18.014774,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:14:18.015096,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:14:18.015194,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:14:18.015275,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:14:57.562792,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:14:57.666115,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:14:57.749696,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:14:57.828950,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:14:57.913963,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:14:57.914205,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:14:57.914318,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:14:57.914418,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:14:59.456546,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:14:59.560910,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:14:59.638203,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:14:59.719806,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:14:59.801238,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:14:59.801523,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:14:59.801665,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:14:59.801780,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:16:13.439313,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:16:13.542074,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:16:13.625771,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:16:13.763763,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:16:13.851329,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:16:13.851642,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:16:13.851763,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:16:13.851883,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:21:39.346519,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:21:39.450294,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:21:39.535736,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:21:39.618207,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:21:39.706034,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:21:39.706342,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:21:39.706545,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:21:39.706653,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:25:36.344288,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:25:36.447022,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:25:36.546773,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:25:36.625416,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:25:36.724525,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:25:36.724843,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:25:36.725067,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:25:36.725229,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:29:43.388731,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:29:43.501254,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:29:43.590496,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:29:43.692138,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:29:43.786740,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:29:43.786957,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:29:43.787074,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:29:43.787189,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:29:45.636056,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:29:45.721465,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:29:45.811849,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:29:45.895644,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:29:46.004279,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:29:46.004537,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:29:46.004652,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:29:46.004759,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:32:25.141805,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:32:25.232036,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:32:25.309246,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:32:25.414306,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:32:25.501280,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:32:25.501625,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:32:25.501763,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:32:25.501875,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:33:48.597484,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:33:48.705678,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:33:48.802184,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:33:48.895101,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:33:49.000967,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:33:49.001203,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:33:49.001321,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:33:49.001433,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:36:05.865316,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:36:05.967564,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:36:06.049902,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:36:06.125525,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:36:06.228788,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:36:06.229102,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:36:06.229222,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:36:06.229328,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:36:08.057953,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:36:08.136736,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:36:08.219774,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:36:08.303239,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:36:08.401634,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:36:08.401845,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:36:08.401955,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:36:08.402060,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:37:19.121649,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:37:19.209918,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:37:19.309782,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:37:19.395610,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:37:19.493424,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:37:19.493740,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:37:19.493881,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:37:19.493998,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:37:27.157047,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:37:27.271231,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:37:27.354730,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:37:27.481054,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:37:27.569126,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:37:27.569431,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:37:27.569578,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:37:27.569700,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:37:33.731686,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:37:33.833295,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:37:33.917691,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:37:34.000653,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:37:34.078541,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:37:34.078765,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:37:34.078891,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:37:34.079025,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:37:36.873267,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:37:36.963097,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:37:37.059681,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:37:37.158025,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:37:37.245461,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:37:37.245865,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:37:37.246083,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:37:37.246290,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:39:07.417890,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:39:07.504484,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:39:07.600359,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:39:07.692072,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:39:07.789322,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:39:07.789666,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:39:07.789817,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:39:07.789933,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:39:23.218722,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:39:23.305261,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:39:23.387649,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:39:23.499234,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:39:23.626278,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:39:23.626691,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:39:23.626910,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:39:23.627057,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:42:32.760298,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:42:32.864260,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:42:32.966697,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:42:33.076973,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:42:33.180414,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:42:33.180898,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:42:33.181091,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:42:33.181229,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:42:38.788597,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:42:38.898189,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:42:38.983280,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:42:39.097900,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:42:39.190870,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:42:39.191490,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:42:39.191815,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:42:39.192063,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:47:09.701178,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:47:09.882069,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:47:10.058936,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:47:10.217991,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:47:10.391179,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:47:10.391486,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:47:10.391599,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:47:10.391703,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:47:26.286277,test_media/Tv/Game Of Thrones/Season 2/Game.Of.ThronesS02E01.txt,TV Show,valid,scanned
+2026-05-18 00:47:26.456943,test_media/Tv/Game Of Thrones/Season 1/Game.Of.ThronesS01E01.txt,TV Show,valid,scanned
+2026-05-18 00:47:26.621332,test_media/Tv/Breaking Bad/Season 2/Breaking.Bad.S02E01.txt,TV Show,valid,scanned
+2026-05-18 00:47:26.778007,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E02.txt,TV Show,valid,scanned
+2026-05-18 00:47:26.941370,test_media/Tv/Breaking Bad/Season 1/Breaking.Bad.S01E01.txt,TV Show,valid,scanned
+2026-05-18 00:47:26.941751,test_media/Movies/The Matrix (1999)/The.Matrix.1999.1080p.mkv,Movie,valid,scanned
+2026-05-18 00:47:26.941895,test_media/Movies/Interstellar (2014)/Interstellar.(2014),Movie,valid,scanned
+2026-05-18 00:47:26.942021,test_media/Movies/Blade Runner 2049 (2017)/Blade.Runner.2049.2017.1080p.mkv,Movie,valid,scanned

@@ -1,5 +1,7 @@
 # PlexPrep Flask Application
 # Provides a basic dashboard and API endpoints for the media monitoring system
+from turtle import color
+
 from flask import Flask, jsonify
 from pathlib import Path
 from main import scan_media_library ,get_storage_stats, apply_safe_renames
@@ -105,9 +107,27 @@ def home():
     needs_rename_count = sum(1 for item in results if item["status"] == "needs_rename")
 
     table_rows = ""
-
     for item in results:
+
         status_class = "valid" if item["status"] == "valid" else "warning"
+
+        metadata = item.get("metadata")
+
+        if isinstance(metadata, dict):
+
+            metadata_display = f"""
+            <div class="metadata-card">
+                <strong>{metadata.get("title", "Unknown Title")}</strong><br>
+                {metadata.get("airdate", "Unknown airdate")}<br>
+                {metadata.get("runtime", "Unknown runtime")} mins
+            </div>
+            """
+
+        elif metadata:
+            metadata_display = metadata
+
+        else:
+         metadata_display = "N/A"
 
         table_rows += f"""
         <tr>
@@ -115,10 +135,12 @@ def home():
             <td>{item["type"]}</td>
             <td class="{status_class}">{item["status"]}</td>
             <td>{item["suggested_name"]}</td>
+            <td>{metadata_display}</td>
         </tr>
         """
 
     return f"""
+
     <!DOCTYPE html>
     <html>
     <head>
@@ -161,6 +183,14 @@ def home():
                 min-width: 150px;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
             }}
+
+            .metadata-card {{
+                 background-color: #181818;
+                 border-left: 3px solid #e5a00d;
+                 padding: 10px;
+                 border-radius: 6px;
+                 line-height: 1.6;
+                min-width: 180px;}}
 
             .card h2 {{
                 margin: 0;
@@ -295,6 +325,7 @@ def home():
                 <th>Type</th>
                 <th>Status</th>
                 <th>Rename Suggestions</th>
+                <th>Metadata</th>
             </tr>
             {table_rows}
         </table>
@@ -371,12 +402,29 @@ def scan():
     rows = ""
 
     for item in results:
+
+        metadata = item.get("metadata")
+
+        if isinstance(metadata, dict):
+            metadata_display = f"""
+            <div class="metadata-card">
+                <strong>{metadata.get("title", "Unknown Title")}</strong><br>
+                {metadata.get("airdate", "Unknown airdate")}<br>
+                {metadata.get("runtime", "Unknown runtime")} mins
+            </div>
+            """
+        elif metadata:
+            metadata_display = metadata
+        else:
+            metadata_display = "N/A"
+
         rows += f"""
         <tr>
             <td>{item["file"]}</td>
             <td>{item["type"]}</td>
             <td>{item["status"]}</td>
             <td>{item["suggested_name"]}</td>
+            <td>{metadata_display}</td>
         </tr>
         """
 
@@ -387,12 +435,13 @@ def scan():
             <th>Type</th>
             <th>Status</th>
             <th>Rename Suggestion</th>
+            <th>Metadata</th>
         </tr>
         {rows}
     </table>
     """
 
-    return render_page("JSON Scan Results", content, top_button=True)
+    return render_page("Media Scan Results", content, top_button=True)
 
 @app.route("/rename-preview")
 def rename_preview():

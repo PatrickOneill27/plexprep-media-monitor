@@ -2,7 +2,7 @@
 # This script scans the media library, detects files,
 # identifies media type, checks naming, logs results,
 # checks storage usage, and suggests Plex-friendly rename options.
-
+import requests
 from pathlib import Path
 from datetime import datetime
 import re
@@ -66,6 +66,44 @@ def get_storage_stats():
         "usage_percent": round((used / total) * 100, 1)
     }
 
+def fetch_tv_metadata(show_name, season, episode):
+    """
+    Fetches TV episode metadata from TVMaze API using show name,
+    season number, and episode number.
+    """
+
+    try:
+        # First find the show
+        search_url = f"https://api.tvmaze.com/singlesearch/shows?q={show_name}"
+        search_response = requests.get(search_url, timeout=5)
+
+        if search_response.status_code != 200:
+            return None
+
+        show_data = search_response.json()
+        show_id = show_data["id"]
+
+        # Then fetch exact episode by season and episode number
+        episode_url = (
+            f"https://api.tvmaze.com/shows/{show_id}/episodebynumber"
+            f"?season={season}&number={episode}"
+        )
+
+        episode_response = requests.get(episode_url, timeout=5)
+
+        if episode_response.status_code != 200:
+            return None
+
+        episode_data = episode_response.json()
+
+        return {
+            "title": episode_data.get("name", "Unknown Title"),
+            "airdate": episode_data.get("airdate", "Unknown airdate"),
+            "runtime": episode_data.get("runtime", "Unknown runtime")
+        }
+
+    except Exception:
+        return None
 
 def generate_rename_suggestion(file_path, media_type, suggested_tracker):
     """
@@ -196,7 +234,28 @@ def scan_media_library():
 
             # Check naming status
             status = check_naming(file.name, media_type)
+            # Default metadata
+            metadata = None
+            # Fetch TV metadata
+            if media_type == "TV Show"and status == "valid":
+                match = re.search(
+                r"S(\d{2})E(\d{2})",
+                file.name,
+                re.IGNORECASE
+             )
 
+                if match:
+                 season = int(match.group(1))
+                 episode = int(match.group(2))
+
+                 show_name = file.parts[-3].replace(".", " ").replace("_", " ")
+
+                 metadata = fetch_tv_metadata(
+                     show_name,
+                     season,
+                    episode
+             )
+           
             # Generate rename suggestion only if needed
             suggested_name = ""
 
@@ -212,7 +271,8 @@ def scan_media_library():
                 "file": str(file),
                 "type": media_type,
                 "status": status,
-                "suggested_name": suggested_name
+                "suggested_name": suggested_name,
+                "metadata":metadata
             }
 
             results.append(result)
