@@ -294,3 +294,4 @@ def scan_media_library():
 
 if __name__ == "__main__":
     scan_media_library()
+    
