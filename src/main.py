@@ -14,13 +14,17 @@ media_folder = Path("test_media")
 
 # Log file path
 log_file = Path("data/logs.csv")
-
+SUBTITLE_EXTENSIONS = {".srt"}
 
 def check_naming(file_name, media_type):
     """
     Checks if file follows basic Plex naming rules.
     """
-
+    if media_type == "Subtitle":
+        if re.search(r"S\d{2}E\d{2}", file_name, re.IGNORECASE):
+            return "subtitle_matched"
+        return "manual_review"
+    
     if media_type == "TV Show":
         # Looks for S01E01 pattern
         if re.search(r"S\d{2}E\d{2}", file_name, re.IGNORECASE):
@@ -222,45 +226,77 @@ def scan_media_library():
     for file in media_folder.rglob("*"):
         if file.is_file():
 
-            # Detect media type based on folder path
             path_parts = [part.lower() for part in file.parts]
 
-            if "movies" in path_parts:
+            if file.suffix.lower() in SUBTITLE_EXTENSIONS:
+                media_type = "Subtitle"
+            elif "movies" in path_parts:
                 media_type = "Movie"
             elif "tv" in path_parts:
                 media_type = "TV Show"
             else:
                 media_type = "Unknown"
 
-            # Check naming status
             status = check_naming(file.name, media_type)
-            # Default metadata
             metadata = None
-            # Fetch TV metadata
-            if media_type == "TV Show"and status == "valid":
+
+            if media_type == "Subtitle":
                 match = re.search(
-                r"S(\d{2})E(\d{2})",
-                file.name,
-                re.IGNORECASE
-             )
+                    r"S(\d{2})E(\d{2})",
+                    file.name,
+                    re.IGNORECASE
+                )
 
                 if match:
-                 season = int(match.group(1))
-                 episode = int(match.group(2))
+                    season = int(match.group(1))
+                    episode = int(match.group(2))
 
-                 show_name = file.parts[-3].replace(".", " ").replace("_", " ")
+                    show_name = file.parts[-3].replace(".", " ").replace("_", " ")
 
-                 metadata = fetch_tv_metadata(
-                     show_name,
-                     season,
-                    episode
-             )
-            # Movie metadata explanation
+                    subtitle_metadata = fetch_tv_metadata(
+                        show_name,
+                        season,
+                        episode
+                    )
+
+                    if subtitle_metadata:
+                        metadata = {
+                            "message": f'Subtitle for: {subtitle_metadata.get("title", "Unknown Episode")}'
+                        }
+                    else:
+                        metadata = {
+                            "message": "Subtitle metadata unavailable"
+                        }
+
+                else:
+                    metadata = {
+                        "message": "Subtitle requires manual review"
+                    }
+
+            elif media_type == "TV Show" and status == "valid":
+                match = re.search(
+                    r"S(\d{2})E(\d{2})",
+                    file.name,
+                    re.IGNORECASE
+                )
+
+                if match:
+                    season = int(match.group(1))
+                    episode = int(match.group(2))
+
+                    show_name = file.parts[-3].replace(".", " ").replace("_", " ")
+
+                    metadata = fetch_tv_metadata(
+                        show_name,
+                        season,
+                        episode
+                    )
+
             elif media_type == "Movie" and status == "valid":
                 metadata = {
-                      "message": "No external movie metadata configured"
-            }
-            # Generate rename suggestion only if needed
+                    "message": "No external movie metadata configured"
+                }
+
             suggested_name = ""
 
             if status == "needs_rename":
@@ -270,27 +306,23 @@ def scan_media_library():
                     suggested_tracker
                 )
 
-            # Store result for Flask/API use
             result = {
                 "file": str(file),
                 "type": media_type,
                 "status": status,
                 "suggested_name": suggested_name,
-                "metadata":metadata
+                "metadata": metadata
             }
 
             results.append(result)
 
-            # Output result to terminal
             print(f"[{media_type}] {file} -> {status}")
 
-            # Log scan result
             log_event(str(file), media_type, status)
 
     print("\nScan complete.")
 
     return results
-
 
 if __name__ == "__main__":
     scan_media_library()

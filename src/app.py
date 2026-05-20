@@ -103,6 +103,7 @@ def home():
     total_files = len(results)
     movie_count = sum(1 for item in results if item["type"] == "Movie")
     tv_count = sum(1 for item in results if item["type"] == "TV Show")
+    subtitle_count = sum(1 for item in results if item["type"] == "Subtitle")
     valid_count = sum(1 for item in results if item["status"] == "valid")
     needs_rename_count = sum(1 for item in results if item["status"] == "needs_rename")
 
@@ -110,7 +111,10 @@ def home():
 
     for item in results:
 
-        status_class = "valid" if item["status"] == "valid" else "warning"
+        if item["status"] in ["valid", "subtitle_matched"]:
+            status_class = "valid"
+        else:
+            status_class = "warning"
 
         metadata = item.get("metadata")
 
@@ -149,9 +153,10 @@ def home():
             <td>{metadata_display}</td>
         </tr>
         """
+
     return f"""
 
-    <!DOCTYPE html>
+     <!DOCTYPE html>
     <html>
     <head>
         <title>PlexPrep Dashboard</title>
@@ -288,6 +293,11 @@ def home():
     <div class="card">
         <h2>{tv_count}</h2>
         <p>TV Episodes</p>
+    </div>
+
+    <div class="card">
+    <h2>{subtitle_count}</h2>
+    <p>Subtitles</p>
     </div>
 
     <div class="card">
