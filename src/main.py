@@ -174,6 +174,15 @@ def generate_rename_suggestion(file_path, media_type, suggested_tracker):
         suggested_tracker[tracker_key] += 1
         next_episode = suggested_tracker[tracker_key]
 
+        episode_check = fetch_tv_metadata(
+            show_name,
+            season,
+            next_episode
+        )
+
+        if not episode_check:
+            return "MANUAL_REVIEW_REQUIRED"
+
         suggested_name = (
             f"{show_name.replace(' ', '.')}"
             f".S{season:02d}E{next_episode:02d}"
@@ -240,21 +249,27 @@ def scan_media_library():
             status = check_naming(file.name, media_type)
             metadata = None
 
+            # Subtitle metadata
             if media_type == "Subtitle":
+
                 match = re.search(
                     r"S(\d{2})E(\d{2})",
                     file.name,
                     re.IGNORECASE
                 )
 
+                # Movie subtitles
                 if "movies" in path_parts:
+
                     movie_folder = file.parts[-2]
 
                     metadata = {
                         "message": f"Subtitle for movie: {movie_folder}"
                     }
 
+                # TV subtitles
                 elif match:
+
                     season = int(match.group(1))
                     episode = int(match.group(2))
 
@@ -270,17 +285,21 @@ def scan_media_library():
                         metadata = {
                             "message": f'Subtitle for: {subtitle_metadata.get("title", "Unknown Episode")}'
                         }
+
                     else:
                         metadata = {
                             "message": "Subtitle metadata unavailable"
                         }
 
+                # Random subtitles
                 else:
                     metadata = {
                         "message": "Subtitle requires manual review"
                     }
 
+            # TV episode metadata
             elif media_type == "TV Show" and status == "valid":
+
                 match = re.search(
                     r"S(\d{2})E(\d{2})",
                     file.name,
@@ -288,6 +307,7 @@ def scan_media_library():
                 )
 
                 if match:
+
                     season = int(match.group(1))
                     episode = int(match.group(2))
 
@@ -299,19 +319,28 @@ def scan_media_library():
                         episode
                     )
 
+            # Movie metadata
             elif media_type == "Movie" and status == "valid":
+
                 metadata = {
                     "message": "No external movie metadata configured"
                 }
 
             suggested_name = ""
 
+            # Rename suggestions
             if status == "needs_rename":
+
                 suggested_name = generate_rename_suggestion(
                     file,
                     media_type,
                     suggested_tracker
                 )
+
+                # Prevent invalid episode renaming
+                if suggested_name == "MANUAL_REVIEW_REQUIRED":
+                    status = "manual_review"
+                    suggested_name = ""
 
             result = {
                 "file": str(file),
@@ -328,6 +357,8 @@ def scan_media_library():
             log_event(str(file), media_type, status)
 
     print("\nScan complete.")
+
+    results.sort(key=lambda item: item["file"].lower())
 
     return results
 
