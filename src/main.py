@@ -16,6 +16,7 @@ media_folder = Path("test_media")
 log_file = Path("data/logs.csv")
 SUBTITLE_EXTENSIONS = {".srt"}
 
+
 def check_naming(file_name, media_type):
     """
     Checks if file follows basic Plex naming rules.
@@ -229,14 +230,15 @@ def scan_media_library():
             path_parts = [part.lower() for part in file.parts]
 
             if file.suffix.lower() in SUBTITLE_EXTENSIONS:
-                media_type = "Subtitle"
+                 media_type = "Subtitle"
             elif "movies" in path_parts:
-                media_type = "Movie"
+                 media_type = "Movie"
             elif "tv" in path_parts:
                 media_type = "TV Show"
             else:
                 media_type = "Unknown"
 
+                
             status = check_naming(file.name, media_type)
             metadata = None
 
