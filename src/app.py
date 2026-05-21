@@ -106,13 +106,15 @@ def home():
     subtitle_count = sum(1 for item in results if item["type"] == "Subtitle")
     valid_count = sum(1 for item in results if item["status"] == "valid")
     needs_rename_count = sum(1 for item in results if item["status"] == "needs_rename")
-
+    manual_review_count = sum(1 for item in results if item["status"] == "manual_review")
     table_rows = ""
 
     for item in results:
 
         if item["status"] in ["valid", "subtitle_matched"]:
             status_class = "valid"
+        elif item["status"] == "manual_review":
+            status_class = "critical"
         else:
             status_class = "warning"
 
@@ -242,7 +244,12 @@ def home():
             }}
 
             .valid {{
-                color: #ffffff;
+                color: #22c55e;
+                font-weight: bold;
+            }}
+
+            .critical {{
+                color: #ef4444;
                 font-weight: bold;
             }}
 
@@ -308,6 +315,11 @@ def home():
     <div class="card">
         <h2>{needs_rename_count}</h2>
         <p>Needs Rename</p>
+    </div>
+    
+    <div class="card">
+    <h2>{manual_review_count}</h2>
+    <p>Manual Review</p>
     </div>
 
 </div>
