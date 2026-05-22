@@ -343,7 +343,7 @@ def scan_media_library():
                     suggested_name = ""
 
             result = {
-                "file": str(file),
+                "file": str(file).replace("test_media", ""),
                 "type": media_type,
                 "status": status,
                 "suggested_name": suggested_name,
