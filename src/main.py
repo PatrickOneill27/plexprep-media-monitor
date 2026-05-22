@@ -207,7 +207,7 @@ def apply_safe_renames():
 
     for item in results:
         if item["status"] == "needs_rename" and item["suggested_name"]:
-            old_path = Path(item["file"])
+            old_path = Path(item["real_file"])
             new_path = old_path.parent / item["suggested_name"]
 
             if old_path.exists() and not new_path.exists():
@@ -344,6 +344,7 @@ def scan_media_library():
 
             result = {
                 "file": str(file).replace("test_media", ""),
+                "real_file": str(file),
                 "type": media_type,
                 "status": status,
                 "suggested_name": suggested_name,

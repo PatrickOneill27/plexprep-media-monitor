@@ -170,6 +170,11 @@ def home():
                 margin: 0;
                 padding: 30px;
             }}
+            
+            .header {{
+                text-align: center;
+                margin-bottom: 30px;
+            }}
 
             h1 {{
                 color: #e5a00d;
@@ -208,7 +213,10 @@ def home():
                  padding: 10px;
                  border-radius: 6px;
                  line-height: 1.6;
-                min-width: 180px;}}
+                 min-width: 180px;
+                 max-width: 220px;
+                 margin: auto;
+                 }}
 
             .card h2 {{
                 margin: 0;
@@ -221,14 +229,24 @@ def home():
                 color: #f3f4f6;
             }}
 
+            .section-title {{
+                text-align: center;
+                margin: 40px 0 20px;
+            }}
+
             table {{
+                min-width: 1100px;
                 width: 100%;
                 border-collapse: collapse;
                 background-color: #1a1a1a;
                 border-radius: 10px;
                 overflow: hidden;
-                table-layout: fixed;
             }}
+
+          .table-container {{
+                max-width: 1600px;
+                margin: auto;
+            }}  
 
             th, td {{
                 padding: 14px;
@@ -237,13 +255,14 @@ def home():
                 border-bottom: 1px solid #333333;
                 text-align: center;
                 font-size: 15px;
-                vertical-align: top;
-                word-break: break-word;
+                vertical-align: middle;
+                word-break: break-word; 
             }}
 
             th {{
                 background-color: #262626;
                 color: #e5a00d;
+                white-space: nowrap;
             }}
 
             tr:hover {{
@@ -261,7 +280,7 @@ def home():
                 border-radius: 8px;
                 display: inline-block;
                 text-align: center;
-                min-width: 130px;
+                min-width: 100px;
                 line-height: 1.2;
             }}
 
@@ -290,7 +309,7 @@ def home():
 
            .card h2.critical {{
                color: #ef4444;
-   }}
+            }}
 
             a {{
                 color: #e5a00d;
@@ -327,9 +346,12 @@ def home():
         </style>
     </head>
     <body>
-        <h1>PlexPrep Media Monitor</h1>
-        <p>Smart connected media server monitoring and Plex file organisation dashboard.</p>
-<div class="cards">
+        <div class="header">
+            <h1> 🎬 PlexPrep Media Monitor</h1>
+            <p>Smart connected media server monitoring and Plex file organisation dashboard.</p>
+        </div>
+
+        <div class="cards">
 
     <div class="card">
         <h2>{total_files}</h2>
@@ -393,8 +415,11 @@ def home():
 
 </div>
    
-        <h2>Scan Results</h2>
+        <div class="section-title">
+            <h2>Scan Results</h2>
+        </div>
 
+    <div class="table-container">
         <table>
             <tr>
                 <th>File</th>
@@ -405,9 +430,10 @@ def home():
             </tr>
             {table_rows}
         </table>
+        </div>
 
         <p>
-            <a href="/scan">Media Scan Results</a> |
+            <a href="/scan">Raw Media Scan Log</a> |
             <a href="/rename-preview">Rename Preview</a> |
             <a href="/rename">Apply Safe Rename</a> |
             <a href="/logs">Activity Logs</a> |
@@ -529,7 +555,7 @@ def scan():
     </table>
     """
 
-    return render_page("Media Scan Results", content, top_button=True)
+    return render_page("Raw Media Scan Log", content, top_button=True)
 
 @app.route("/rename-preview") 
 def rename_preview():
