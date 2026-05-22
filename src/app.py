@@ -475,7 +475,7 @@ def scan():
 
     return render_page("Media Scan Results", content, top_button=True)
 
-@app.route("/rename-preview")
+@app.route("/rename-preview") 
 def rename_preview():
     results = scan_media_library()
 
