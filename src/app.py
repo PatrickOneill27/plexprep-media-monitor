@@ -186,9 +186,9 @@ def home():
             }}
 
             .cards {{
-                display: flex;
+                display: grid;
                 gap: 15px;
-                flex-wrap: wrap;
+                grid-template-columns: repeat(4, 1fr);
                 margin: 30px 0;
             }}
 
@@ -197,7 +197,8 @@ def home():
                 border-left: 5px solid #e5a00d;
                 padding: 20px;
                 border-radius: 10px;
-                min-width: 150px;
+                width: 100%;
+                box-sizing: border-box;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
             }}
 
@@ -302,19 +303,25 @@ def home():
                 text-decoration: underline;
             }}
 
-            @media (max-width: 768px) {{
+            @media (max-width: 900px) {{
+                .cards {{
+                grid-template-columns: repeat(2, 1fr);
+                }}
+            }}
+
+            @media (max-width: 600px) {{
                 body {{
-                    padding: 15px;
+                padding: 15px;
                 }}
 
-                .card {{
-                    width: 100%;
+                .cards {{
+                    grid-template-columns: 1fr;
                 }}
 
                 table {{
-                    display: block;
-                    overflow-x: auto;
-                    white-space: nowrap;
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
                 }}
             }}
         </style>
