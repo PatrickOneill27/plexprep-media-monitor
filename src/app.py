@@ -150,7 +150,7 @@ def home():
         <tr>
             <td>{item["file"]}</td>
             <td>{item["type"]}</td>
-            <td class="{status_class}">{item["status"]}</td>
+            <td class="status-cell"><span class="{status_class}">{item["status"]}</span></td>
             <td>{item["suggested_name"]}</td>
             <td>{metadata_display}</td>
         </tr>
@@ -226,12 +226,18 @@ def home():
                 background-color: #1a1a1a;
                 border-radius: 10px;
                 overflow: hidden;
+                table-layout: fixed;
             }}
 
             th, td {{
-                padding: 12px;
+                padding: 14px;
+                padding-top: 18px;
+                padding-bottom: 18px;
                 border-bottom: 1px solid #333333;
-                text-align: left;
+                text-align: center;
+                font-size: 15px;
+                vertical-align: top;
+                word-break: break-word;
             }}
 
             th {{
@@ -243,19 +249,34 @@ def home():
                 background-color: #242424;
             }}
 
-            .valid {{
-                color: #22c55e;
-                font-weight: bold;
+            .status-cell {{
+                vertical-align: middle;
+                text-align: center;
             }}
 
-            .critical {{
-                color: #ef4444;
+            .valid, .warning, .critical {{
                 font-weight: bold;
+                padding: 6px 12px;
+                border-radius: 8px;
+                display: inline-block;
+                text-align: center;
+                min-width: 130px;
+                line-height: 1.2;
+            }}
+
+            .valid {{
+                color: #22c55e;
+                background-color: rgba(34, 197, 94, 0.12);
             }}
 
             .warning {{
                 color: #e5a00d;
-                font-weight: bold;
+                background-color: rgba(229, 160, 13, 0.12);
+            }}
+
+            .critical {{
+                color: #ef4444;
+                background-color: rgba(239, 68, 68, 0.12);
             }}
 
            .card h2.healthy {{
@@ -279,6 +300,22 @@ def home():
             a:hover {{
                 color: #ffffff;
                 text-decoration: underline;
+            }}
+
+            @media (max-width: 768px) {{
+                body {{
+                    padding: 15px;
+                }}
+
+                .card {{
+                    width: 100%;
+                }}
+
+                table {{
+                    display: block;
+                    overflow-x: auto;
+                    white-space: nowrap;
+                }}
             }}
         </style>
     </head>
@@ -369,6 +406,18 @@ def home():
             <a href="/logs">Activity Logs</a> |
             <a href="/status">Server Status</a>
         </p>
+
+        <p>Dashboard last updated: <span id="last-updated"></span></p>
+
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {{
+        const updated = document.getElementById("last-updated");
+        if (updated) {{
+            updated.textContent = new Date().toLocaleString();
+        }}
+    }});
+</script>
+
     </body>
     </html>
     """
