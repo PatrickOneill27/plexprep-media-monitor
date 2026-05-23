@@ -113,10 +113,10 @@ def generate_rename_suggestion(file_path, media_type, suggested_tracker):
     """
     Generates a Plex-friendly rename suggestion.
 
+    For movies, it uses the movie folder name.
+    For subtitles, it uses the movie folder or matched TV episode pattern.
     For TV shows, it uses the show folder, season folder,
     and next available episode number.
-
-    For movies, it uses the movie folder name.
     """
 
     # Movie rename suggestions
@@ -127,7 +127,54 @@ def generate_rename_suggestion(file_path, media_type, suggested_tracker):
 
             suggested_name = movie_folder.replace(" ", ".") + extension
 
+            if suggested_name.lower() == file_path.name.lower():
+                return ""
+
             return suggested_name
+
+        except IndexError:
+            return ""
+
+    # Subtitle rename suggestions
+    if media_type == "Subtitle":
+        try:
+            extension = file_path.suffix
+
+            # Movie subtitles
+            if "Movies" in file_path.parts:
+                movie_folder = file_path.parts[-2]
+
+                suggested_name = movie_folder.replace(" ", ".") + extension
+
+                if suggested_name.lower() == file_path.name.lower():
+                    return ""
+
+                return suggested_name
+
+            # TV subtitles
+            match = re.search(
+                r"S(\d{2})E(\d{2})",
+                file_path.name,
+                re.IGNORECASE
+            )
+
+            if match:
+                show_name = file_path.parts[-3]
+                season = int(match.group(1))
+                episode = int(match.group(2))
+
+                suggested_name = (
+                    f"{show_name.replace(' ', '.')}"
+                    f".S{season:02d}E{episode:02d}"
+                    f"{extension}"
+                )
+
+                if suggested_name.lower() == file_path.name.lower():
+                    return ""
+
+                return suggested_name
+
+            return "MANUAL_REVIEW_REQUIRED"
 
         except IndexError:
             return ""
@@ -188,6 +235,9 @@ def generate_rename_suggestion(file_path, media_type, suggested_tracker):
             f".S{season:02d}E{next_episode:02d}"
             f"{extension}"
         )
+
+        if suggested_name.lower() == file_path.name.lower():
+            return ""
 
         return suggested_name
 
@@ -252,13 +302,7 @@ def scan_media_library():
             # Subtitle metadata
             if media_type == "Subtitle":
 
-                match = re.search(
-                    r"S(\d{2})E(\d{2})",
-                    file.name,
-                    re.IGNORECASE
-                )
-
-                # Movie subtitles
+                # Movie subtitles are matched using folder context
                 if "movies" in path_parts:
 
                     movie_folder = file.parts[-2]
@@ -267,35 +311,43 @@ def scan_media_library():
                         "message": f"Subtitle for movie: {movie_folder}"
                     }
 
-                # TV subtitles
-                elif match:
+                    status = "subtitle_matched"
 
-                    season = int(match.group(1))
-                    episode = int(match.group(2))
-
-                    show_name = file.parts[-3].replace(".", " ").replace("_", " ")
-
-                    subtitle_metadata = fetch_tv_metadata(
-                        show_name,
-                        season,
-                        episode
+                # TV subtitles need SxxExx episode pattern
+                else:
+                    match = re.search(
+                        r"S(\d{2})E(\d{2})",
+                        file.name,
+                        re.IGNORECASE
                     )
 
-                    if subtitle_metadata:
-                        metadata = {
-                            "message": f'Subtitle for: {subtitle_metadata.get("title", "Unknown Episode")}'
-                        }
+                    if match:
+
+                        season = int(match.group(1))
+                        episode = int(match.group(2))
+
+                        show_name = file.parts[-3].replace(".", " ").replace("_", " ")
+
+                        subtitle_metadata = fetch_tv_metadata(
+                            show_name,
+                            season,
+                            episode
+                        )
+
+                        if subtitle_metadata:
+                            metadata = {
+                                "message": f'Subtitle for: {subtitle_metadata.get("title", "Unknown Episode")}'
+                            }
+
+                        else:
+                            metadata = {
+                                "message": "Subtitle metadata unavailable"
+                            }
 
                     else:
                         metadata = {
-                            "message": "Subtitle metadata unavailable"
+                            "message": "Subtitle requires manual review"
                         }
-
-                # Random subtitles
-                else:
-                    metadata = {
-                        "message": "Subtitle requires manual review"
-                    }
 
             # TV episode metadata
             elif media_type == "TV Show" and status == "valid":
@@ -322,14 +374,16 @@ def scan_media_library():
             # Movie metadata
             elif media_type == "Movie" and status == "valid":
 
+                movie_folder = file.parts[-2]
+
                 metadata = {
-                    "message": "No external movie metadata configured"
+                    "message": movie_folder
                 }
 
             suggested_name = ""
 
             # Rename suggestions
-            if status == "needs_rename":
+            if status in ["needs_rename", "manual_review", "subtitle_matched"]:
 
                 suggested_name = generate_rename_suggestion(
                     file,
@@ -337,7 +391,7 @@ def scan_media_library():
                     suggested_tracker
                 )
 
-                # Prevent invalid episode renaming
+                # Prevent unsafe rename suggestions
                 if suggested_name == "MANUAL_REVIEW_REQUIRED":
                     status = "manual_review"
                     suggested_name = ""
@@ -362,7 +416,6 @@ def scan_media_library():
     results.sort(key=lambda item: item["file"].lower())
 
     return results
-
 if __name__ == "__main__":
     scan_media_library()
     

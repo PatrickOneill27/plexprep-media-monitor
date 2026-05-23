@@ -434,6 +434,7 @@ def home():
 
         <p>
             <a href="/scan">Raw Media Scan Log</a> |
+            <a href="/manual-review">Manual Review</a> |
             <a href="/rename-preview">Rename Preview</a> |
             <a href="/rename">Apply Safe Rename</a> |
             <a href="/logs">Activity Logs</a> |
@@ -520,15 +521,28 @@ def scan():
         metadata = item.get("metadata")
 
         if isinstance(metadata, dict):
-            metadata_display = f"""
-            <div class="metadata-card">
-                <strong>{metadata.get("title", "Unknown Title")}</strong><br>
-                {metadata.get("airdate", "Unknown airdate")}<br>
-                {metadata.get("runtime", "Unknown runtime")} mins
-            </div>
-            """
+
+            # Simple message-based metadata
+            if "message" in metadata:
+                metadata_display = f"""
+                <div class="metadata-card">
+                    <strong>{metadata.get("message")}</strong>
+                </div>
+                """
+
+            # Full TV episode metadata
+            else:
+                metadata_display = f"""
+                <div class="metadata-card">
+                    <strong>{metadata.get("title", "Unknown Title")}</strong><br>
+                    {metadata.get("airdate", "Unknown airdate")}<br>
+                    {metadata.get("runtime", "Unknown runtime")} mins
+                </div>
+                """
+
         elif metadata:
             metadata_display = metadata
+
         else:
             metadata_display = "N/A"
 
@@ -556,6 +570,54 @@ def scan():
     """
 
     return render_page("Raw Media Scan Log", content, top_button=True)
+
+@app.route("/manual-review")
+def manual_review():
+    results = scan_media_library()
+
+    review_items = [
+        item for item in results
+        if item["status"] == "manual_review"
+    ]
+
+    if not review_items:
+        return render_page(
+            "Manual Review",
+            "<p>No files currently require manual review.</p>"
+        )
+
+    rows = ""
+
+    for item in review_items:
+        reason = "N/A"
+
+        if isinstance(item.get("metadata"), dict):
+            reason = item["metadata"].get("message", "N/A")
+
+        rows += f"""
+        <tr>
+            <td>{item["file"]}</td>
+            <td>{item["type"]}</td>
+            <td>{item["status"]}</td>
+            <td>{reason}</td>
+        </tr>
+        """
+
+    content = f"""
+    <p>These files were flagged because they may need human checking before renaming or organising.</p>
+
+    <table>
+        <tr>
+            <th>File</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Reason</th>
+        </tr>
+        {rows}
+    </table>
+    """
+
+    return render_page("Manual Review", content)
 
 @app.route("/rename-preview") 
 def rename_preview():
