@@ -1,14 +1,76 @@
 # PlexPrep Flask Application
-# Provides a basic dashboard and API endpoints for the media monitoring system
-from turtle import color
+# Provides a dashboard and API endpoints for the media monitoring system
 
-from flask import Flask, jsonify
+from flask import Flask
 from pathlib import Path
-from main import scan_media_library ,get_storage_stats, apply_safe_renames
+from main import scan_media_library, get_storage_stats, apply_safe_renames
 
 app = Flask(__name__)
 
 log_file = Path("data/logs.csv")
+
+
+def build_metadata_display(metadata):
+    """
+    Builds the HTML shown in the Metadata column.
+    Handles TV/movie metadata and subtitle language metadata.
+    """
+
+    if not metadata:
+        return "N/A"
+
+    if isinstance(metadata, dict):
+        subtitle_language = metadata.get("subtitle_language")
+        manual_review = metadata.get("manual_review")
+        message = metadata.get("message")
+        episode_title = metadata.get("episode_title")
+
+        # Subtitle metadata display
+        if subtitle_language:
+            review_message = ""
+
+            if manual_review:
+                review_message = """
+                <br>
+                <strong>Status:</strong> Language not detected - manual review required
+                """
+
+            if episode_title:
+                title_display = f"""
+                <strong>Episode:</strong> {episode_title}<br>
+                """
+            else:
+                title_display = f"""
+                <strong>{message or "Subtitle file"}</strong><br>
+                """
+
+            return f"""
+            <div class="metadata-card">
+                {title_display}
+                <strong>Subtitle Language:</strong> {subtitle_language}
+                {review_message}
+            </div>
+            """
+
+        # Movie/simple metadata message
+        if message:
+            return f"""
+            <div class="metadata-card">
+                <strong>{message}</strong>
+            </div>
+            """
+
+        # TV metadata
+        return f"""
+        <div class="metadata-card">
+            <strong>{metadata.get("title", "Unknown Title")}</strong><br>
+            {metadata.get("airdate", "Unknown airdate")}<br>
+            {metadata.get("runtime", "Unknown runtime")} mins
+        </div>
+        """
+
+    return metadata
+
 def render_page(title, content, top_button=False):
     return f"""
     <!DOCTYPE html>
@@ -81,7 +143,7 @@ def render_page(title, content, top_button=False):
     <body>
         <div class="box">
             <h1>{title}</h1>
-          {"<a href='/'>Return to Dashboard</a>" if top_button else ""}
+            {"<a href='/'>Return to Dashboard</a>" if top_button else ""}
             {content}
             <a href="/">Return to Dashboard</a>
         </div>
@@ -89,10 +151,12 @@ def render_page(title, content, top_button=False):
     </html>
     """
 
+
 @app.route("/")
 def home():
     results = scan_media_library()
     storage = get_storage_stats()
+
     if storage["usage_percent"] < 70:
         disk_class = "healthy"
     elif storage["usage_percent"] < 90:
@@ -106,45 +170,24 @@ def home():
     subtitle_count = sum(1 for item in results if item["type"] == "Subtitle")
     valid_count = sum(1 for item in results if item["status"] == "valid")
     needs_rename_count = sum(1 for item in results if item["status"] == "needs_rename")
-    manual_review_count = sum(1 for item in results if item["status"] == "manual_review")
+
+    manual_review_count = sum(
+        1 for item in results
+        if item["status"] in ["manual_review", "subtitle_language_unknown"]
+    )
+
     table_rows = ""
 
     for item in results:
 
         if item["status"] in ["valid", "subtitle_matched"]:
             status_class = "valid"
-        elif item["status"] == "manual_review":
+        elif item["status"] in ["manual_review", "subtitle_language_unknown"]:
             status_class = "critical"
         else:
             status_class = "warning"
 
-        metadata = item.get("metadata")
-
-        if isinstance(metadata, dict):
-
-            # Movie metadata message
-            if "message" in metadata:
-                metadata_display = f"""
-                <div class="metadata-card">
-                    <strong>{metadata.get("message")}</strong>
-                </div>
-                """
-
-            # TV metadata
-            else:
-                metadata_display = f"""
-                <div class="metadata-card">
-                    <strong>{metadata.get("title", "Unknown Title")}</strong><br>
-                    {metadata.get("airdate", "Unknown airdate")}<br>
-                    {metadata.get("runtime", "Unknown runtime")} mins
-                </div>
-                """
-
-        elif metadata:
-            metadata_display = metadata
-
-        else:
-            metadata_display = "N/A"
+        metadata_display = build_metadata_display(item.get("metadata"))
 
         table_rows += f"""
         <tr>
@@ -157,8 +200,7 @@ def home():
         """
 
     return f"""
-
-     <!DOCTYPE html>
+    <!DOCTYPE html>
     <html>
     <head>
         <title>PlexPrep Dashboard</title>
@@ -170,7 +212,7 @@ def home():
                 margin: 0;
                 padding: 30px;
             }}
-            
+
             .header {{
                 text-align: center;
                 margin-bottom: 30px;
@@ -208,15 +250,15 @@ def home():
             }}
 
             .metadata-card {{
-                 background-color: #181818;
-                 border-left: 3px solid #e5a00d;
-                 padding: 10px;
-                 border-radius: 6px;
-                 line-height: 1.6;
-                 min-width: 180px;
-                 max-width: 220px;
-                 margin: auto;
-                 }}
+                background-color: #181818;
+                border-left: 3px solid #e5a00d;
+                padding: 10px;
+                border-radius: 6px;
+                line-height: 1.6;
+                min-width: 180px;
+                max-width: 260px;
+                margin: auto;
+            }}
 
             .card h2 {{
                 margin: 0;
@@ -243,10 +285,10 @@ def home():
                 overflow: hidden;
             }}
 
-          .table-container {{
+            .table-container {{
                 max-width: 1600px;
                 margin: auto;
-            }}  
+            }}
 
             th, td {{
                 padding: 14px;
@@ -256,7 +298,7 @@ def home():
                 text-align: center;
                 font-size: 15px;
                 vertical-align: middle;
-                word-break: break-word; 
+                word-break: break-word;
             }}
 
             th {{
@@ -299,16 +341,16 @@ def home():
                 background-color: rgba(239, 68, 68, 0.12);
             }}
 
-           .card h2.healthy {{
-               color: #22c55e;
+            .card h2.healthy {{
+                color: #22c55e;
             }}
 
-           .card h2.warning {{
-               color: #e5a00d;
+            .card h2.warning {{
+                color: #e5a00d;
             }}
 
-           .card h2.critical {{
-               color: #ef4444;
+            .card h2.critical {{
+                color: #ef4444;
             }}
 
             a {{
@@ -324,13 +366,13 @@ def home():
 
             @media (max-width: 900px) {{
                 .cards {{
-                grid-template-columns: repeat(2, 1fr);
+                    grid-template-columns: repeat(2, 1fr);
                 }}
             }}
 
             @media (max-width: 600px) {{
                 body {{
-                padding: 15px;
+                    padding: 15px;
                 }}
 
                 .cards {{
@@ -338,98 +380,51 @@ def home():
                 }}
 
                 table {{
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
+                    display: block;
+                    overflow-x: auto;
+                    white-space: nowrap;
                 }}
             }}
         </style>
     </head>
     <body>
         <div class="header">
-            <h1> 🎬 PlexPrep Media Monitor</h1>
+            <h1>🎬 PlexPrep Media Monitor</h1>
             <p>Smart connected media server monitoring and Plex file organisation dashboard.</p>
         </div>
 
         <div class="cards">
+            <div class="card"><h2>{total_files}</h2><p>Total Files</p></div>
+            <div class="card"><h2>{movie_count}</h2><p>Movies</p></div>
+            <div class="card"><h2>{tv_count}</h2><p>TV Episodes</p></div>
+            <div class="card"><h2>{subtitle_count}</h2><p>Subtitles</p></div>
+            <div class="card"><h2>{valid_count}</h2><p>Valid Files</p></div>
+            <div class="card"><h2>{needs_rename_count}</h2><p>Needs Rename</p></div>
+            <div class="card"><h2>{manual_review_count}</h2><p>Manual Review</p></div>
+        </div>
 
-    <div class="card">
-        <h2>{total_files}</h2>
-        <p>Total Files</p>
-    </div>
+        <div class="cards">
+            <div class="card"><h2 class="{disk_class}">{storage["usage_percent"]}%</h2><p>Disk Usage</p></div>
+            <div class="card"><h2>{storage["total_gb"]} GB</h2><p>Total Capacity</p></div>
+            <div class="card"><h2>{storage["used_gb"]} GB</h2><p>Used Capacity</p></div>
+            <div class="card"><h2>{storage["free_gb"]} GB</h2><p>Free Capacity</p></div>
+        </div>
 
-    <div class="card">
-        <h2>{movie_count}</h2>
-        <p>Movies</p>
-    </div>
-
-    <div class="card">
-        <h2>{tv_count}</h2>
-        <p>TV Episodes</p>
-    </div>
-
-    <div class="card">
-    <h2>{subtitle_count}</h2>
-    <p>Subtitles</p>
-    </div>
-
-    <div class="card">
-        <h2>{valid_count}</h2>
-        <p>Valid Files</p>
-    </div>
-
-    <div class="card">
-        <h2>{needs_rename_count}</h2>
-        <p>Needs Rename</p>
-    </div>
-    
-    <div class="card">
-    <h2>{manual_review_count}</h2>
-    <p>Manual Review</p>
-    </div>
-
-</div>
-
-<div class="cards">
-
-   <div class="card">
-    <h2 class="{disk_class}">{storage["usage_percent"]}%</h2>
-    <p>Disk Usage</p>
-</div>
-
-    <div class="card">
-        <h2>{storage["total_gb"]} GB</h2>
-        <p>Total Capacity</p>
-    </div>
-
-    <div class="card">
-        <h2>{storage["used_gb"]} GB</h2>
-        <p>Used Capacity</p>
-    </div>
-
-    <div class="card">
-        <h2>{storage["free_gb"]} GB</h2>
-        <p>Free Capacity</p>
-    </div>
-    
-
-</div>
-   
         <div class="section-title">
             <h2>Scan Results</h2>
         </div>
 
-    <div class="table-container">
-        <table>
-            <tr>
-                <th>File</th>
-                <th>Type</th>
-                <th>Status</th>
-                <th>Rename Suggestions</th>
-                <th>Metadata</th>
-            </tr>
-            {table_rows}
-        </table>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>File</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Rename Suggestions</th>
+                    <th>Metadata</th>
+                </tr>
+                {table_rows}
+            </table>
         </div>
 
         <p>
@@ -443,18 +438,18 @@ def home():
 
         <p>Dashboard last updated: <span id="last-updated"></span></p>
 
-   <script>
-    document.addEventListener("DOMContentLoaded", function () {{
-        const updated = document.getElementById("last-updated");
-        if (updated) {{
-            updated.textContent = new Date().toLocaleString();
-        }}
-    }});
-</script>
-
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {{
+                const updated = document.getElementById("last-updated");
+                if (updated) {{
+                    updated.textContent = new Date().toLocaleString();
+                }}
+            }});
+        </script>
     </body>
     </html>
     """
+
 
 @app.route("/status")
 def status():
@@ -470,6 +465,7 @@ def status():
 
     return render_page("System Status", content)
 
+
 @app.route("/logs")
 def logs():
     if not log_file.exists():
@@ -480,7 +476,6 @@ def logs():
     with open(log_file, "r") as f:
         lines = f.readlines()
 
-    # Skip the header row
     for line in lines[1:]:
         columns = line.strip().split(",")
 
@@ -510,41 +505,14 @@ def logs():
 
     return render_page("System Logs", content, top_button=True)
 
+
 @app.route("/scan")
 def scan():
     results = scan_media_library()
-
     rows = ""
 
     for item in results:
-
-        metadata = item.get("metadata")
-
-        if isinstance(metadata, dict):
-
-            # Simple message-based metadata
-            if "message" in metadata:
-                metadata_display = f"""
-                <div class="metadata-card">
-                    <strong>{metadata.get("message")}</strong>
-                </div>
-                """
-
-            # Full TV episode metadata
-            else:
-                metadata_display = f"""
-                <div class="metadata-card">
-                    <strong>{metadata.get("title", "Unknown Title")}</strong><br>
-                    {metadata.get("airdate", "Unknown airdate")}<br>
-                    {metadata.get("runtime", "Unknown runtime")} mins
-                </div>
-                """
-
-        elif metadata:
-            metadata_display = metadata
-
-        else:
-            metadata_display = "N/A"
+        metadata_display = build_metadata_display(item.get("metadata"))
 
         rows += f"""
         <tr>
@@ -571,13 +539,14 @@ def scan():
 
     return render_page("Raw Media Scan Log", content, top_button=True)
 
+
 @app.route("/manual-review")
 def manual_review():
     results = scan_media_library()
 
     review_items = [
         item for item in results
-        if item["status"] == "manual_review"
+        if item["status"] in ["manual_review", "subtitle_language_unknown"]
     ]
 
     if not review_items:
@@ -619,7 +588,8 @@ def manual_review():
 
     return render_page("Manual Review", content)
 
-@app.route("/rename-preview") 
+
+@app.route("/rename-preview")
 def rename_preview():
     results = scan_media_library()
 
@@ -657,6 +627,7 @@ def rename_preview():
 
     return render_page("Rename Preview", content, top_button=True)
 
+
 @app.route("/rename")
 def rename_files():
     renamed_files = apply_safe_renames()
@@ -691,6 +662,7 @@ def rename_files():
     """
 
     return render_page("Files Renamed Successfully", content)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
