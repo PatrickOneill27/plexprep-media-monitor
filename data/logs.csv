@@ -49,3 +49,71 @@
 2026-05-24 23:34:22.488496,test_media/Movies/Interstellar (2014)/Interstellar.2014.pt.srt,Subtitle,subtitle_matched,scanned
 2026-05-24 23:34:22.488599,test_media/Movies/Interstellar (2014)/Interstellar.(2014).eng.srt,Subtitle,subtitle_matched,scanned
 2026-05-24 23:34:22.488692,test_media/Movies/Interstellar (2014)/Interstellar.(2014).mkv,Movie,valid,scanned
+2026-05-25 00:19:19.672547,test_media/TV/Game Of Thrones/badsub.srt,Subtitle,subtitle_language_unknown,scanned
+2026-05-25 00:19:19.883478,test_media/TV/Game Of Thrones/Season 1/Game.Of.Thrones.S01E01.mkv,TV Show,valid,scanned
+2026-05-25 00:19:20.052867,test_media/TV/Game Of Thrones/Season 1/got ep3.mkv,TV Show,needs_rename,scanned
+2026-05-25 00:19:20.217263,test_media/TV/Game Of Thrones/Season 1/Game.Of.Thrones.S01E02.mkv,TV Show,valid,scanned
+2026-05-25 00:19:20.381078,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E03.mkv,TV Show,valid,scanned
+2026-05-25 00:19:20.597546,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E06.mkv,TV Show,valid,scanned
+2026-05-25 00:19:20.762753,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E04.mkv,TV Show,valid,scanned
+2026-05-25 00:19:20.948071,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E05.mkv,TV Show,valid,scanned
+2026-05-25 00:19:21.114255,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E02.mkv,TV Show,valid,scanned
+2026-05-25 00:19:21.283308,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E07.mkv,TV Show,valid,scanned
+2026-05-25 00:19:21.445563,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E01.mkv,TV Show,valid,scanned
+2026-05-25 00:19:21.609040,test_media/TV/Breaking Bad/Season 1/Extras.mkv,TV Show,manual_review,scanned
+2026-05-25 00:19:21.609386,test_media/Movies/The Matrix (1999)/The.Matrix.movie.mkv,Movie,needs_rename,scanned
+2026-05-25 00:19:21.609529,test_media/Movies/The Matrix (1999)/badmoviesub.srt,Subtitle,subtitle_language_unknown,scanned
+2026-05-25 00:19:21.609685,test_media/Movies/Interstellar (2014)/Interstellar.2014.pt.srt,Subtitle,subtitle_matched,scanned
+2026-05-25 00:19:21.609791,test_media/Movies/Interstellar (2014)/Interstellar.(2014).eng.srt,Subtitle,subtitle_matched,scanned
+2026-05-25 00:19:21.609890,test_media/Movies/Interstellar (2014)/Interstellar.(2014).mkv,Movie,valid,scanned
+2026-05-25 00:20:05.441959,test_media/TV/Game Of Thrones/Season 1/Game.Of.Thrones.S01E01.mkv,TV Show,valid,scanned
+2026-05-25 00:20:05.605821,test_media/TV/Game Of Thrones/Season 1/got ep3.mkv,TV Show,needs_rename,scanned
+2026-05-25 00:20:05.606007,test_media/TV/Game Of Thrones/Season 1/badsub.srt,Subtitle,subtitle_language_unknown,scanned
+2026-05-25 00:20:05.769124,test_media/TV/Game Of Thrones/Season 1/Game.Of.Thrones.S01E02.mkv,TV Show,valid,scanned
+2026-05-25 00:20:06.018863,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E03.mkv,TV Show,valid,scanned
+2026-05-25 00:20:06.216339,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E06.mkv,TV Show,valid,scanned
+2026-05-25 00:20:06.429511,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E04.mkv,TV Show,valid,scanned
+2026-05-25 00:20:06.593476,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E05.mkv,TV Show,valid,scanned
+2026-05-25 00:20:06.761652,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E02.mkv,TV Show,valid,scanned
+2026-05-25 00:20:06.924775,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E07.mkv,TV Show,valid,scanned
+2026-05-25 00:20:07.084385,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E01.mkv,TV Show,valid,scanned
+2026-05-25 00:20:07.246236,test_media/TV/Breaking Bad/Season 1/Extras.mkv,TV Show,manual_review,scanned
+2026-05-25 00:20:07.246502,test_media/Movies/The Matrix (1999)/The.Matrix.movie.mkv,Movie,needs_rename,scanned
+2026-05-25 00:20:07.246620,test_media/Movies/The Matrix (1999)/badmoviesub.srt,Subtitle,subtitle_language_unknown,scanned
+2026-05-25 00:20:07.246759,test_media/Movies/Interstellar (2014)/Interstellar.2014.pt.srt,Subtitle,subtitle_matched,scanned
+2026-05-25 00:20:07.246858,test_media/Movies/Interstellar (2014)/Interstellar.(2014).eng.srt,Subtitle,subtitle_matched,scanned
+2026-05-25 00:20:07.246952,test_media/Movies/Interstellar (2014)/Interstellar.(2014).mkv,Movie,valid,scanned
+2026-05-25 00:20:34.018565,test_media/TV/Game Of Thrones/Season 1/Game.Of.Thrones.S01E01.mkv,TV Show,valid,scanned
+2026-05-25 00:20:34.182942,test_media/TV/Game Of Thrones/Season 1/got ep3.mkv,TV Show,needs_rename,scanned
+2026-05-25 00:20:34.183111,test_media/TV/Game Of Thrones/Season 1/badsub.srt,Subtitle,subtitle_language_unknown,scanned
+2026-05-25 00:20:34.344414,test_media/TV/Game Of Thrones/Season 1/Game.Of.Thrones.S01E02.mkv,TV Show,valid,scanned
+2026-05-25 00:20:34.512589,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E03.mkv,TV Show,valid,scanned
+2026-05-25 00:20:34.678829,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E06.mkv,TV Show,valid,scanned
+2026-05-25 00:20:34.853479,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E04.mkv,TV Show,valid,scanned
+2026-05-25 00:20:35.034726,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E05.mkv,TV Show,valid,scanned
+2026-05-25 00:20:35.201221,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E02.mkv,TV Show,valid,scanned
+2026-05-25 00:20:35.356072,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E07.mkv,TV Show,valid,scanned
+2026-05-25 00:20:35.513622,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E01.mkv,TV Show,valid,scanned
+2026-05-25 00:20:35.674570,test_media/TV/Breaking Bad/Season 1/Extras.mkv,TV Show,manual_review,scanned
+2026-05-25 00:20:35.674812,test_media/Movies/The Matrix (1999)/The.Matrix.movie.mkv,Movie,needs_rename,scanned
+2026-05-25 00:20:35.674921,test_media/Movies/The Matrix (1999)/badmoviesub.srt,Subtitle,subtitle_language_unknown,scanned
+2026-05-25 00:20:35.675063,test_media/Movies/Interstellar (2014)/Interstellar.2014.pt.srt,Subtitle,subtitle_matched,scanned
+2026-05-25 00:20:35.675168,test_media/Movies/Interstellar (2014)/Interstellar.(2014).eng.srt,Subtitle,subtitle_matched,scanned
+2026-05-25 00:20:35.675263,test_media/Movies/Interstellar (2014)/Interstellar.(2014).mkv,Movie,valid,scanned
+2026-05-25 00:20:38.811061,test_media/TV/Game Of Thrones/Season 1/Game.Of.Thrones.S01E01.mkv,TV Show,valid,scanned
+2026-05-25 00:20:38.978023,test_media/TV/Game Of Thrones/Season 1/got ep3.mkv,TV Show,needs_rename,scanned
+2026-05-25 00:20:38.978185,test_media/TV/Game Of Thrones/Season 1/badsub.srt,Subtitle,subtitle_language_unknown,scanned
+2026-05-25 00:20:39.146946,test_media/TV/Game Of Thrones/Season 1/Game.Of.Thrones.S01E02.mkv,TV Show,valid,scanned
+2026-05-25 00:20:39.310321,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E03.mkv,TV Show,valid,scanned
+2026-05-25 00:20:39.467283,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E06.mkv,TV Show,valid,scanned
+2026-05-25 00:20:39.630626,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E04.mkv,TV Show,valid,scanned
+2026-05-25 00:20:39.796970,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E05.mkv,TV Show,valid,scanned
+2026-05-25 00:20:39.971091,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E02.mkv,TV Show,valid,scanned
+2026-05-25 00:20:40.138411,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E07.mkv,TV Show,valid,scanned
+2026-05-25 00:20:40.303606,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E01.mkv,TV Show,valid,scanned
+2026-05-25 00:20:40.468824,test_media/TV/Breaking Bad/Season 1/Extras.mkv,TV Show,manual_review,scanned
+2026-05-25 00:20:40.469070,test_media/Movies/The Matrix (1999)/The.Matrix.movie.mkv,Movie,needs_rename,scanned
+2026-05-25 00:20:40.469185,test_media/Movies/The Matrix (1999)/badmoviesub.srt,Subtitle,subtitle_language_unknown,scanned
+2026-05-25 00:20:40.469326,test_media/Movies/Interstellar (2014)/Interstellar.2014.pt.srt,Subtitle,subtitle_matched,scanned
+2026-05-25 00:20:40.469432,test_media/Movies/Interstellar (2014)/Interstellar.(2014).eng.srt,Subtitle,subtitle_matched,scanned
+2026-05-25 00:20:40.469545,test_media/Movies/Interstellar (2014)/Interstellar.(2014).mkv,Movie,valid,scanned
