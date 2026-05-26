@@ -117,3 +117,20 @@
 2026-05-25 00:20:40.469326,test_media/Movies/Interstellar (2014)/Interstellar.2014.pt.srt,Subtitle,subtitle_matched,scanned
 2026-05-25 00:20:40.469432,test_media/Movies/Interstellar (2014)/Interstellar.(2014).eng.srt,Subtitle,subtitle_matched,scanned
 2026-05-25 00:20:40.469545,test_media/Movies/Interstellar (2014)/Interstellar.(2014).mkv,Movie,valid,scanned
+2026-05-25 01:06:42.824578,test_media/TV/Game Of Thrones/Season 1/Game.Of.Thrones.S01E01.mkv,TV Show,valid,scanned
+2026-05-25 01:06:42.989194,test_media/TV/Game Of Thrones/Season 1/got ep3.mkv,TV Show,needs_rename,scanned
+2026-05-25 01:06:42.989383,test_media/TV/Game Of Thrones/Season 1/badsub.srt,Subtitle,subtitle_language_unknown,scanned
+2026-05-25 01:06:43.332147,test_media/TV/Game Of Thrones/Season 1/Game.Of.Thrones.S01E02.mkv,TV Show,valid,scanned
+2026-05-25 01:06:43.655375,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E03.mkv,TV Show,valid,scanned
+2026-05-25 01:06:43.827078,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E06.mkv,TV Show,valid,scanned
+2026-05-25 01:06:44.011643,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E04.mkv,TV Show,valid,scanned
+2026-05-25 01:06:44.231147,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E05.mkv,TV Show,valid,scanned
+2026-05-25 01:06:44.695473,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E02.mkv,TV Show,valid,scanned
+2026-05-25 01:06:44.963027,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E07.mkv,TV Show,valid,scanned
+2026-05-25 01:06:45.134441,test_media/TV/Breaking Bad/Season 1/Breaking.Bad.S01E01.mkv,TV Show,valid,scanned
+2026-05-25 01:06:45.306108,test_media/TV/Breaking Bad/Season 1/Extras.mkv,TV Show,manual_review,scanned
+2026-05-25 01:06:45.307177,test_media/Movies/The Matrix (1999)/The.Matrix.movie.mkv,Movie,needs_rename,scanned
+2026-05-25 01:06:45.307503,test_media/Movies/The Matrix (1999)/badmoviesub.srt,Subtitle,subtitle_language_unknown,scanned
+2026-05-25 01:06:45.307798,test_media/Movies/Interstellar (2014)/Interstellar.2014.pt.srt,Subtitle,subtitle_matched,scanned
+2026-05-25 01:06:45.307945,test_media/Movies/Interstellar (2014)/Interstellar.(2014).eng.srt,Subtitle,subtitle_matched,scanned
+2026-05-25 01:06:45.308170,test_media/Movies/Interstellar (2014)/Interstellar.(2014).mkv,Movie,valid,scanned
