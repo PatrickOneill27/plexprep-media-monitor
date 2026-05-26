@@ -98,7 +98,29 @@ The application monitors:
 This allows users to monitor the health and organisation state of the media library in real time.
 
 ---
+## Event-Driven Architecture
 
+PlexPrep follows an event-driven monitoring architecture using Python’s `watchdog` library to continuously observe media folders for filesystem changes.
+
+When new files are added or modified, filesystem events automatically trigger:
+- media validation
+- metadata checks
+- rename suggestion generation
+- subtitle analysis
+- dashboard updates
+- activity logging
+- manual review workflows
+
+This allows the system to react dynamically to media library changes without requiring constant manual rescanning.
+
+The event-driven workflow demonstrates key concepts from Computer Systems & Networks including:
+- connected monitoring systems
+- automated event handling
+- real-time processing workflows
+- continuous system monitoring
+- client/server application behaviour
+
+---
 ## Demonstrate connected systems concepts using Flask and HTTP networking
 
 The application uses Flask to implement a lightweight HTTP-based connected system.
