@@ -296,7 +296,6 @@ Additional future improvements could also include automatic organisation and cla
 At the moment, PlexPrep intentionally avoids automatically renaming or reorganising these files to prevent unsafe changes. Future versions could use metadata analysis, filename pattern recognition, or dedicated extras folders to safely classify and organise supplementary media content while still preserving manual review safeguards for uncertain cases.
 
 Other future improvements may include:
-- live filesystem monitoring
 - remote deployment support
 - configurable dashboard settings
 - advanced analytics and reporting
